@@ -269,7 +269,7 @@ def _main(args: argparse.Namespace) -> int:
     total = len(test_expected_list)
     for i in range(total):
         pair = test_expected_list[i]
-        input(f"[{i}/{total}] {pair[0]}: ")
+        input(f"[{i + 1}/{total}] {pair[0]}: ")
         print(f"\t{pair[0]} --> {pair[1]}")
     return 0
 
