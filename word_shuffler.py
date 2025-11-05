@@ -211,6 +211,7 @@ def _mode_plural(
         expected = _word_from_row(row, plural = True)
         if len(expected) == 0:
             continue
+        expected = f"{expected} ({row.Translation})"
         output_list.append((test, expected))
     return output_list
 
@@ -265,8 +266,11 @@ def _main(args: argparse.Namespace) -> int:
     args.length = min(len(df), args.length)
     # Call the "_mode_*" functions that matches args.mode
     test_expected_list = globals()[f"_mode_{args.mode}"](df, args)
-    for i in test_expected_list:
-        print(f"{i[0]} --> {i[1]}")
+    total = len(test_expected_list)
+    for i in range(total):
+        pair = test_expected_list[i]
+        input(f"[{i}/{total}] {pair[0]}: ")
+        print(f"\t{pair[0]} --> {pair[1]}")
     return 0
 
 
