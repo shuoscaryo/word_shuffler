@@ -1,0 +1,262 @@
+Article,Word,Plural,Translation,Category
+,Hallo,,Hola,interjection
+,Guten Tag,,Buenos días,expression
+,Guten Morgen,,Buenos días,expression
+,Guten Abend,,Buenas tardes,expression
+,Auf Wiedersehen,,Hasta la vista,expression
+,Tschüss,,Adiós,interjection
+,Gute Nacht,,Buenas noches,expression
+,Bis bald,,Hasta pronto,expression
+,Bis später,,Hasta luego,expression
+,Bis morgen,,Hasta mañana,expression
+,heißen,,llamarse,verb
+,wer,,quién,pronoun
+,was,,qué,pronoun
+,warum,,por qué,adverb
+,wo,,dónde,adverb
+,wann,,cuándo,adverb
+,wie,,cómo,adverb
+,woher,,de dónde,adverb
+,wohin,,adónde,adverb
+,welch -e/-er/-es,,cuál,determiner
+,wie viel,,cuánto (incontable),adverb
+,wie viele,,cuántos (contable),adverb
+,wessen,,de quién,pronoun
+der,Cent,Cent,céntimo,noun
+das,Bild,Bilder,imagen / cuadro / foto,noun
+der,Tag,Tage,día,noun
+die,Katze,Katzen,gato / gata,noun
+der,König,Könige,rey,noun
+die,Qualität,Qualitäten,calidad,noun
+die,Sonne,Sonnen,sol,noun
+das,Haus,Häuser,casa,noun
+der,Van,Vans,furgoneta,noun
+der,Vater,Väter,padre,noun
+das,Baby,Babys,bebé,noun
+der,Typ,Typen,tipo / chico (dude),noun
+die,Straße,Straßen,calle,noun
+der,Saal,Säle,vestíbulo,noun
+das,Meer,Meere,mar,noun
+der,Lehrer,Lehrer,profesor,noun  
+die,Lehrerin,Lehrerinnen,profesora,noun
+die,Uhr,Uhren,reloj,noun
+,ja,,sí,interjection
+,gut,,bueno,adjective
+,legen,,poner / colocar / acostar (to lay),verb
+der,Kamm,Kämme,peine,noun
+der,Hund,Hunde,perro,noun
+,mein,,mi,pronoun
+das,Eis,,helado / hielo,noun
+,blau,,azul,adjective
+der,Kauf,Käufe,compra,noun
+,Deutschland,,Alemania,proper noun
+der,Traum,Träume,sueño,noun
+die,Liebe,,amor,noun
+,lieben,,amar / querer,verb
+,hier,,aquí,adverb
+das,Spiel,Spiele,juego,noun
+,spielen,,jugar,verb
+,ich,,yo,pronoun
+,ich,,yo,pronoun
+,du,,tú,pronoun
+,Sie,,usted,pronoun
+,er,,él,pronoun
+,sie,,ella,pronoun
+,es,,ello / eso,pronoun
+,wir,,nosotros,pronoun
+,ihr,,vosotros,pronoun
+,Sie,,ustedes,pronoun
+,sie,,ellos,pronoun
+,null,,cero,number
+,eins,,uno,number
+,zwei,,dos,number
+,drei,,tres,number
+,vier,,cuatro,number
+,fünf,,cinco,number
+,sechs,,seis,number
+,sieben,,siete,number
+,acht,,ocho,number
+,neun,,nueve,number
+,zehn,,diez,number
+,elf,,once,number
+,zwölf,,doce,number
+,hundert,,cien / 100,number
+,tausend,,mil / 1 000,number
+,Million,,millón / 1 000 000,number
+,Milliarde,,mil millones / 1 000 000 000 (1B),number
+,Billion,,billón / 1 000 000 000 000 (1T),number
+das,Licht,Lichter,luz,noun
+das,Buch,Bücher,libro,noun
+die,Nacht,Nächte,noche,noun
+die,Schule,Schulen,escuela,noun
+,falsch,,falso / incorrecto,adjective
+,backen,,hornear / cocer al horno,verb
+der,Schreck,Schrecke,susto,noun
+das,Alphabet,Alphabete,alfabeto,noun
+das,Pferd,Pferde,caballo,noun
+der,Platz,Plätze,sitio,noun
+,Wie geht es Ihnen?,,¿Cómo está usted?,expression
+,Wie geht es dir?,,¿Qué tal? (formal),expression
+,Wie geht's?,,¿Qué tal? (casual),expression
+,Mir geht es gut,,Respuesta OK a ¿Qué tal?,expression
+,es geht,,Respuesta Neutral a ¿Qué tal?,expression
+,nicht so gut,,no muy bien,expression
+,bitte,,por favor / de nada,expression
+,danke,,gracias,expression
+,Entschuldigung,,perdón / disculpe,expression
+,Freut mich,,encantado / mucho gusto,expression
+,auch,,también,adverb
+,angenehm,,encantado / agradable,adjective
+,neu,,nuevo,adjective
+,sehr,,muy,adverb
+,freundlich,,amigable,adjective
+der,Freund,Freunde,amigo,noun
+die,Freundin,Freundinnen,amiga,noun
+,interessant,,interesante,adjective
+der,Arzt,Ärzte,médico,noun
+die,Ärztin,Ärztinnen,médica,noun
+der,Student,Studenten,estudiante (hombre),noun
+die,Studentin,Studentinnen,estudiante (mujer),noun
+der,Kollege,Kollegen,compañero / colega,noun
+die,Kollegin,Kolleginnen,compañera / colega,noun
+,müde,,cansado,adjective
+,glücklich,,feliz,adjective
+,kalt,,frío,adjective
+,intelligent,,inteligente,adjective
+,pünktlich,,puntual,adjective
+,richtig,,correcto,adjective
+,überrascht,,sorprendido,adjective
+,natürlich,,natural / por supuesto,adjective
+,willkommen,,bienvenido,adjective
+das,Komma,Kommata / Kommas,coma,noun
+der,Montag,Montage,lunes,noun
+der,Dienstag,Dienstage,martes,noun
+der,Mittwoch,Mittwoche,miércoles,noun
+der,Donnerstag,Donnerstage,jueves,noun
+der,Freitag,Freitage,viernes,noun
+der,Samstag,Samstage,sábado,noun
+der,Sonntag,Sonntage,domingo,noun
+der,Tag,Tage,día,noun
+der,Monat,Monate,mes,noun
+der,Januar,,enero,noun
+der,Februar,,febrero,noun
+der,März,,marzo,noun
+der,April,,abril,noun
+der,Mai,,mayo,noun
+der,Juni,,junio,noun
+der,Juli,,julio,noun
+der,August,,agosto,noun
+der,September,,septiembre,noun
+der,Oktober,,octubre,noun
+der,November,,noviembre,noun
+der,Dezember,,diciembre,noun
+der,Frühling,,primavera,noun
+der,Sommer,,verano,noun
+der,Herbst,,otoño,noun
+der,Winter,,invierno,noun
+der,Mann,Männer,hombre,noun
+die,Frau,Frauen,mujer,noun
+,sprechen,,hablar,verb
+,kommen,,venir,verb
+,aus,,de / desde,preposition
+,trinken,,beber,verb
+,essen,,comer,verb
+der,Kaffee,,café,noun
+das,Wasser,,agua,noun
+der,Kuchen,Kuchen,pastel / torta,noun
+,haben,,tener,verb
+der,Hunger,,hambre,noun
+,machen,,hacer,verb
+,gehen,,ir / caminar,verb
+die,Hausaufgaben,,deberes,noun
+,arbeiten,,trabajar,verb
+die,Arbeit,,trabajo,noun
+das,Büro,Büros,oficina,noun
+der,Apfel,Äpfel,manzana,noun
+der,Kellner,Kellner,camarero,noun
+,bringen,,traer,verb
+der,Fußball,Fußbälle,fútbol,noun
+,kaufen,,comprar,verb
+das,Brot,Brote,pan,noun
+,bestellen,,pedir / ordenar,verb
+die,Pommes,,papas fritas,noun
+,schreiben,,escribir,verb
+,hören,,oír / escuchar,verb
+die,Musik,,música,noun
+,malen,,pintar,verb
+,fahren,,conducir / ir (en vehículo),verb
+das,Auto,Autos,coche,noun
+,nett,,simpático,adjective
+der,Tisch,Tische,mesa,noun
+,lernen,,aprender,verb
+das,Essen,,comida,noun
+die,Schweiz,,Suiza,proper noun
+,Frankreich,,Francia,proper noun
+,Österreich,,Austria,proper noun
+,Russland,,Rusia,proper noun
+,Spanien,,España,proper noun
+,Italien,,Italia,proper noun
+,England,,Inglaterra,proper noun
+die,USA,,Estados Unidos,proper noun
+,China,,China,proper noun
+,Japan,,Japón,proper noun
+,Indien,,India,proper noun
+,Neuseeland,,Nueva Zelanda,proper noun
+,Australien,,Australia,proper noun
+,Ägypten,,Egipto,proper noun
+,reich,,rico,adjective
+das,Reich,Reiche,imperio / reino,noun
+das,Genus,Genera,género gramatical,noun
+das,Mädchen,Mädchen,niña,noun
+das,Kind,Kinder,niño (child),noun
+,heiß,,caliente,adjective
+der,Junge,Jungen,niño,noun
+die,Tasse,Tassen,taza,noun
+die,Lampe,Lampen,lámpara,noun
+,leer,,vacío,adjective
+der,Baum,Bäume,árbol,noun
+der,Sessel,Sessel,sillón / butaca,noun
+die,Blume,Blumen,flor,noun
+,schauen,,mirar,verb
+,schau mal,,mira / fíjate,expression
+,bequem,,cómodo,adjective
+die,Küche,Küchen,cocina,noun
+,modern,,moderno,adjective
+das,Bett,Betten,cama,noun
+der,Norden,,Norte,noun
+der,Süden,,Sur,noun
+der,Osten,,Este (East),noun
+der,Westen,,Oeste,noun
+der,Bäcker,Bäcker,panadero,noun
+der,Computer,Computer,ordenador,noun
+der,Schmetterling,Schmetterlinge,mariposa,noun
+der,Tourismus,,turismo,noun
+die,Freiheit,,libertad,noun
+die,Zeitung,Zeitungen,periódico / diario,noun
+die,Nation,Nationen,nación,noun
+die,Universität,Universitäten,universidad,noun
+die,Magd,Mägde,criada / sirvienta,noun
+das,Eigentum,Eigentümer,propiedad,noun
+,leben,,vivir,verb
+das,Leben,,vida,noun
+,rot,,rojo,adjective
+das,Rot,,rojo (el color),noun
+das,Hotel,Hotels,hotel,noun
+das,Restaurant,Restaurants,restaurante,noun
+das,Radio,Radios,radio,noun
+die,Wohnung,Wohnungen,vivienda / piso / apartamento,noun
+der,Name,Namen,nombre,noun
+der,Stuhl,Stühle,silla,noun
+das,Jahr,Jahre,año,noun
+der,Ort,Orte,lugar / sitio,noun
+der,Ball,Bälle,pelota / balón,noun
+das,Land,Länder,país / tierra,noun
+die,Oma,Omas,abuela,noun
+das,Fenster,Fenster,ventana,noun
+die,Mutter,Mütter,madre,noun
+der,Bruder,Brüder,hermano,noun
+der,Sohn,Söhne,hijo,noun
+die,Tür,Türen,puerta,noun
+,sehen,,ver,verb
+,groß,,grande,adjective
+,lesen,,leer,verb
