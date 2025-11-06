@@ -1,0 +1,26 @@
+Article,Word,Plural,Translation,Category
+,Hallo,,Hola,interjection
+,Guten Tag,,Buenos días,expression
+,Guten Morgen,,Buenos días,expression
+,Guten Abend,,Buenas tardes,expression
+,Auf Wiedersehen,,Hasta la vista,expression
+,Tschüss,,Adiós,interjection
+,Gute Nacht,,Buenas noches,expression
+,Bis bald,,Hasta pronto,expression
+,Bis später,,Hasta luego,expression
+,Bis morgen,,Hasta mañana,expression
+,heißen,,llamarse,verb
+,Wie geht es Ihnen?,,¿Cómo está usted?,expression
+,Wie geht es dir?,,¿Qué tal? (formal),expression
+,Wie geht's?,,¿Qué tal? (casual),expression
+,Mir geht es gut,,Respuesta OK a ¿Qué tal?,expression
+,es geht,,Respuesta Neutral a ¿Qué tal?,expression
+,nicht so gut,,no muy bien,expression
+,bitte,,por favor / de nada,expression
+,danke,,gracias,expression
+,Entschuldigung,,perdón / disculpe,expression
+,Freut mich,,encantado / mucho gusto,expression
+,auch,,también,adverb
+,angenehm,,encantado / agradable,adjective
+das,Bett,Betten,cama,noun
+der,Computer,Computer,ordenador,noun

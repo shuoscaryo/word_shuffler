@@ -249,6 +249,18 @@ def _mode_article(
     return output_list
 
 
+def _read_csv_list(csv_list: list[str]) -> pd.DataFrame:
+    df_list = []
+    for csv in csv_list:
+        try:
+            df = pd.read_csv(csv)
+            df_list.append(df)
+        except:
+            logging.error(f"Couldn't read file {csv}. Skipping")
+    output_df = pd.concat(df_list, ignore_index=True)
+    return output_df
+
+
 def _main(args: argparse.Namespace) -> int:
     """
     Entry point of the program. Args can be modified in 'parse_args()'.
@@ -262,7 +274,7 @@ def _main(args: argparse.Namespace) -> int:
     - int: Exit code (0 = success, other values = error).
     """
     # load data
-    df = pd.read_csv(args.input_csv)
+    df = _read_csv_list(args.input_csv)
     args.length = min(len(df), args.length)
     # Call the "_mode_*" functions that matches args.mode
     test_expected_list = globals()[f"_mode_{args.mode}"](df, args)
@@ -333,6 +345,7 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument(
         "input_csv",
         type = str,
+        nargs="+", # allows for infinite amount
         help = "Path to the csv with the words."
     )
     # - Optional

@@ -1,0 +1,49 @@
+Article,Word,Plural,Translation,Category
+,null,,cero,number
+,eins,,uno,number
+,zwei,,dos,number
+,drei,,tres,number
+,vier,,cuatro,number
+,fünf,,cinco,number
+,sechs,,seis,number
+,sieben,,siete,number
+,acht,,ocho,number
+,neun,,nueve,number
+,zehn,,diez,number
+,elf,,once,number
+,zwölf,,doce,number
+,hundert,,cien / 100,number
+,tausend,,mil / 1 000,number
+,Million,,millón / 1 000 000,number
+,Milliarde,,mil millones / 1 000 000 000 (1B),number
+,Billion,,billón / 1 000 000 000 000 (1T),number
+das,Komma,Kommata / Kommas,coma,noun
+der,Tag,Tage,día,noun
+die,Woche,Wochen,semana,noun
+der,Wochentag,Wochentage,día de la semana,noun
+der,Monat,Monate,mes,noun
+die,Jahreszeit,Jahreszeiten,estación del año,noun
+das,Jahr,Jahre,año,noun
+der,Montag,Montage,lunes,noun
+der,Dienstag,Dienstage,martes,noun
+der,Mittwoch,Mittwoche,miércoles,noun
+der,Donnerstag,Donnerstage,jueves,noun
+der,Freitag,Freitage,viernes,noun
+der,Samstag,Samstage,sábado,noun
+der,Sonntag,Sonntage,domingo,noun
+der,Januar,,enero,noun
+der,Februar,,febrero,noun
+der,März,,marzo,noun
+der,April,,abril,noun
+der,Mai,,mayo,noun
+der,Juni,,junio,noun
+der,Juli,,julio,noun
+der,August,,agosto,noun
+der,September,,septiembre,noun
+der,Oktober,,octubre,noun
+der,November,,noviembre,noun
+der,Dezember,,diciembre,noun
+der,Frühling,,primavera,noun
+der,Sommer,,verano,noun
+der,Herbst,,otoño,noun
+der,Winter,,invierno,noun
