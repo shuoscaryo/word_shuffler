@@ -1,3 +1,5 @@
+#TODO Check duplicates on multiple csv
+
 # =============================================================================
 #
 # To know what this script does or what options it has use the flag "-h":
@@ -392,11 +394,18 @@ def _main(args: argparse.Namespace) -> int:
     # Call the "_mode_*" functions that matches args.mode
     pair_list = globals()[f"_mode_{args.mode}"](df, args)
     total = len(pair_list)
+
     for i in range(total):
         pair = pair_list[i]
         if (args.mode in MODES["TEST"]["MODES"]):
-            input(f"[{i + 1}/{total}] {pair[0]}: ")
-            print(f"\t{pair[0]} -> {pair[1]}")
+            str = input(f"[{i + 1}/{total}] {pair[0]}: ")
+            if (str != ""):
+                print(f"\t{pair[0]} -> {pair[1]}")
+            else:
+                RED = "\033[91m"
+                RESET = "\033[0m"
+                print(f"\t{RED}{pair[0]} -> {pair[1]}{RESET}")
+
         elif (args.mode in MODES["TRAIN"]["MODES"]):
             print(f"[{i + 1}/{total}] {pair[0]} -> {pair[1]}")
 
@@ -462,7 +471,7 @@ def _parse_args() -> argparse.Namespace:
         for mode, help in mode_type["MODES"].items():
             str_list.append(f"\t- {mode}: {help}\n")
     mode_help = "".join(str_list)
-    
+
     parser.add_argument(
         'mode',
         choices = mode_choices,
