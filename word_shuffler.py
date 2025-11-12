@@ -258,11 +258,10 @@ def _read_csv_list(csv_list: list[str]) -> pd.DataFrame:
     be filled with NA.
 
     Args:
-    - df: Dataframe from where the words will be sampled
-    - args: input arguments of the program
+    - csv_list: List of paths of csv files
 
     Returns:
-    - list[tuple[str,str]]: List containing "Test" "Expected" pairs.
+    Dataframe with all the csv files merged into one.
 
     Raises:
     - ValueError: if df_list is empty after all files
