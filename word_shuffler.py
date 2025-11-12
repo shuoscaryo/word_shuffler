@@ -7,13 +7,14 @@
 # Template structure:
 #   _main()          → The program starts from here
 #   _parse_args()    → Arguments and explanation go here.
-#   _setup_logging() → configures logging detail and message format (usually no
+#   _setup_logger() → configures logger detail and message format (usually no
 #     need to touch it)
 #
 # Conventions:
 #   - Functions and variables starting with "_" are internal and should not be
 #       imported elsewhere.
 #   - Specify function args type and return type.
+#   - Use "logger" object to print stuff
 #   - Double enter between functions.
 #   - Try to keep lines below 80 characters, wrap long ones into multiple
 #       lines.
@@ -250,14 +251,30 @@ def _mode_article(
 
 
 def _read_csv_list(csv_list: list[str]) -> pd.DataFrame:
+    """
+    Takes a list of filenames of csv files, reads them all and joins them
+    into a single pd.DataFrame. The resulting pd.DataFrame columns are all
+    merged from each csv, so if a file has missing something the column will
+    be filled with NA.
+
+    Args:
+    - df: Dataframe from where the words will be sampled
+    - args: input arguments of the program
+
+    Returns:
+    - list[tuple[str,str]]: List containing "Test" "Expected" pairs.
+
+    Raises:
+    - ValueError: if df_list is empty after all files
+    """
     df_list = []
     for csv in csv_list:
         try:
             df = pd.read_csv(csv)
             df_list.append(df)
         except:
-            logging.error(f"Couldn't read file {csv}. Skipping")
-    output_df = pd.concat(df_list, ignore_index=True)
+            logger.error(f"Couldn't read file {csv}. Skipping")
+    output_df = pd.concat(df_list, ignore_index = True)
     return output_df
 
 
@@ -274,7 +291,12 @@ def _main(args: argparse.Namespace) -> int:
     - int: Exit code (0 = success, other values = error).
     """
     # load data
-    df = _read_csv_list(args.input_csv)
+    try:
+        df = _read_csv_list(args.input_csv)
+    except:
+        logger.error("Couldn't get a DataFrame from the csv list provided."
+            f"\n\t{args.input_csv}")
+        return 1
     args.length = min(len(df), args.length)
     # Call the "_mode_*" functions that matches args.mode
     test_expected_list = globals()[f"_mode_{args.mode}"](df, args)
@@ -381,7 +403,7 @@ def _parse_args() -> argparse.Namespace:
     return parser, args
 
 
-def _setup_logging(args: argparse.Namespace) -> None:
+def _setup_logger(args: argparse.Namespace) -> None:
     """
     Handles what level to show and the format of the messages while logging.
 
@@ -417,22 +439,26 @@ def _setup_logging(args: argparse.Namespace) -> None:
         handlers.append(logging.FileHandler(args.log_file, mode="w", encoding="utf-8"))
 
     logging.basicConfig(
-        level=LEVELS[args.log_level],
         format="%(asctime)s %(levelname)s | %(filename)s:%(lineno)d: %(message)s",
         datefmt="%H:%M:%S",
         handlers=handlers,
         force=True,
     )
 
+    logger = logging.getLogger(__name__)
+    logger.setLevel(LEVELS[args.log_level])
+
+    return logger
+
 
 if __name__ == "__main__":
     parser, args = _parse_args()
-    _setup_logging(args)
+    logger = _setup_logger(args)
     if not parser.description.strip():
-        logging.warning("Parser has no description.")
+        logger.warning("Parser has no description.")
     result = _main(args)
     if not isinstance(result, int):
-        logging.warning(
+        logger.warning(
             f"_main() returned {type(result).__name__}, expected int. "
             "Using exit code 0."
         )
