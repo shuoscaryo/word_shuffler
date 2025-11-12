@@ -51,8 +51,27 @@ import random
 # =============================================================================
 # GLOBAL DEFINES
 DEFAULT_TEST_LENGTH = 20
-MODES_LIST = ["german", "translated", "both", "plural", "article",]
-CSV_COLUMNS = ["Article", "Word", "Plural", "Translation", "Category"]
+MODES = {
+    "TEST": {
+        "MODES": {
+            "german": "shows singular in german, expects translation",
+            "translated": "shows translation, expects german",
+            "both":
+                "mix 50%% german, 50%% translated."
+                "Words can repeat in both sets",
+            "plural": "shows singular in german, expects plural",
+            "article": "shows singular in german, expects article",
+        },
+        "HELP": "Prompts the words before showing the answer"
+    },
+    "TRAIN": {
+        "MODES": {
+            "train": "german <plural> -> translated",
+        },
+        "HELP": "Shows all the sample at once with the answer"
+    }
+}
+#CSV_COLUMNS = ["Article", "Word", "Plural", "Translation", "Category"]
 # =============================================================================
 
 def _word_from_row(row: tuple, plural: bool = False) -> str:
@@ -203,8 +222,7 @@ def _mode_plural(
     """
     # filter only nouns
     df = df[df["Category"] == "noun"]
-    length = min(args.length, len(df))
-    sample = df.sample(length)
+    sample = df.sample(args.length)
 
     output_list = []
     for row in sample.itertuples():
@@ -239,8 +257,7 @@ def _mode_article(
     """
     # filter only nouns
     df = df[df["Category"] == "noun"]
-    length = min(args.length, len(df))
-    sample = df.sample(length)
+    sample = df.sample(args.length)
 
     output_list = []
     for row in sample.itertuples():
@@ -249,6 +266,39 @@ def _mode_article(
         output_list.append((test, expected))
     return output_list
 
+
+def _mode_train(
+    df: pd.DataFrame,
+    args: argparse.Namespace
+) -> list[tuple[str, str]]:
+    """
+    Generates a list containing a pair "Test" and "Expected".
+    "Test" are singular german nouns without article.
+    "Expected" are the nouns with the article.
+    The length of the list is args.test_length.
+
+    Args:
+    - df: Dataframe from where the words will be sampled
+    - args: input arguments of the program
+
+    Returns:
+    - list[tuple[str,str]]: List containing "German" "Translated" pairs.
+
+    Raises:
+    None
+    """
+    # filter only nouns
+    sample = df.sample(args.length)
+    output_list = []
+    for row in sample.itertuples():
+        word = _word_from_row(row, plural = False)
+        if row.Category == "Noun":
+            plural = _word_from_row(row, plural = True)
+            word = f"{word}, {plural}"
+        if not args.no_show_category:
+            word = f"[{row.Category}] {word}"
+        output_list.append((word, row.Translation))
+    return output_list
 
 def _read_csv_list(csv_list: list[str]) -> pd.DataFrame:
     """
@@ -277,6 +327,35 @@ def _read_csv_list(csv_list: list[str]) -> pd.DataFrame:
     return output_df
 
 
+def _modes_has_duplicates(modes: dict) -> bool:
+    """
+    Checks if the MODES has duplicate modes in diferent categories.
+    Returns true if there are, and false if not
+
+    Args:
+    - modes: dictionary with the modes. "MODES" variable
+
+    Returns:
+    true if there are duplicates, false if not
+
+    Raises:
+    None
+    """    
+    keys = list(MODES.keys())
+    for i in range(len(keys)):
+        for j in range(i + 1, len(keys)):
+            list_i = [x.lower() for x in MODES[keys[i]]["MODES"]]
+            list_j = [x.lower() for x in MODES[keys[j]]["MODES"]]
+            duplicates_list = [k for k in list_i if k in list_j]
+            if len(duplicates_list) > 0:
+                logger.error(
+                    f"Duplicates in MODE found:\n"
+                    f"\tMODE[{keys[i]}], MODE[{keys[j]}] -> {duplicates_list}"
+                )
+                return 1
+    return 0
+
+
 def _main(args: argparse.Namespace) -> int:
     """
     Entry point of the program. Args can be modified in 'parse_args()'.
@@ -288,7 +367,14 @@ def _main(args: argparse.Namespace) -> int:
 
     Returns:
     - int: Exit code (0 = success, other values = error).
+
+    Raises:
+    None
     """
+    # check that modes is not repeated
+    if _modes_has_duplicates(MODES):
+        return 1
+
     # load data
     try:
         df = _read_csv_list(args.input_csv)
@@ -296,14 +382,24 @@ def _main(args: argparse.Namespace) -> int:
         logger.error("Couldn't get a DataFrame from the csv list provided."
             f"\n\t{args.input_csv}")
         return 1
-    args.length = min(len(df), args.length)
+
+    # Adjust length
+    if (args.length is None):
+        args.length = len(df)
+    else:
+        args.length = min(len(df), args.length)
+
     # Call the "_mode_*" functions that matches args.mode
-    test_expected_list = globals()[f"_mode_{args.mode}"](df, args)
-    total = len(test_expected_list)
+    pair_list = globals()[f"_mode_{args.mode}"](df, args)
+    total = len(pair_list)
     for i in range(total):
-        pair = test_expected_list[i]
-        input(f"[{i + 1}/{total}] {pair[0]}: ")
-        print(f"\t{pair[0]} --> {pair[1]}")
+        pair = pair_list[i]
+        if (args.mode in MODES["TEST"]["MODES"]):
+            input(f"[{i + 1}/{total}] {pair[0]}: ")
+            print(f"\t{pair[0]} -> {pair[1]}")
+        elif (args.mode in MODES["TRAIN"]["MODES"]):
+            print(f"[{i + 1}/{total}] {pair[0]} -> {pair[1]}")
+
     return 0
 
 
@@ -328,8 +424,8 @@ def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description = "Reads the words from the input_csv and displays some "
             " depending on the options to check if you know them!",
-        formatter_class = argparse.ArgumentDefaultsHelpFormatter,
-        epilog = "Example:",
+        formatter_class=argparse.RawTextHelpFormatter,
+        epilog = f"Example: python3 {__file__} german file.csv",
     )
     # Default flag for setting how deep the logs should go
     parser.add_argument(
@@ -352,22 +448,32 @@ def _parse_args() -> argparse.Namespace:
     # WRITE ARGS HERE
     # - Positional
     # parser.add_argument("name", type = str, help = "")
-    mode_choices = [i.lower() for i in MODES_LIST]
+    # generate the choices
+    mode_choices = []
+    for mode in MODES:
+        mode_choices.extend(MODES[mode]["MODES"])
+    # generate description for every mode
+    str_list = []
+    mode_help = "What kind of test to do."
+    str_list.append(mode_help)
+    str_list.append("\n")
+    for key, mode_type in MODES.items():
+        str_list.append(f'* {key}: {mode_type["HELP"]}\n')
+        for mode, help in mode_type["MODES"].items():
+            str_list.append(f"\t- {mode}: {help}\n")
+    mode_help = "".join(str_list)
+    
     parser.add_argument(
         'mode',
         choices = mode_choices,
         type = str.lower,
-        help = "What kind of test to do. \"German\" shows german words, "
-            "\"Translated\" the translation, \"Both\" randomly shows "
-            "translated or german with 50%% distribution, \"Plural\" shows the"
-            " german plural of nouns and test for german singular and "
-            "\"Article\" the german singular noun and expects the article."
+        help = mode_help
     )
     parser.add_argument(
         "input_csv",
         type = str,
         nargs="+", # allows for infinite amount
-        help = "Path to the csv with the words."
+        help = "Paths to the csvs with the words."
     )
     # - Optional
     # -- Flag
@@ -382,9 +488,9 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument(
         '-l',
         '--length',
-        default = DEFAULT_TEST_LENGTH,
+        default = None,
         type = int,
-        help = "How many words to show in test.",
+        help = "How many words to show in test. If not set, takes all",
     )
     ### NO MORE ARGS BELOW THIS
     # =========================================================================
@@ -396,7 +502,7 @@ def _parse_args() -> argparse.Namespace:
     # ARG VALUE CHECK
     # if condition:
     #   parser.error("") # Terminates program
-    if args.length < 0 :
+    if args.length is not None and args.length < 0:
         parser.error("argument --test-length must be greater than 0.")
     # =========================================================================
     return parser, args
