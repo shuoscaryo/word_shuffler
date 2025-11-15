@@ -52,7 +52,6 @@ import random
 
 # =============================================================================
 # GLOBAL DEFINES
-DEFAULT_TEST_LENGTH = 20
 MODES = {
     "TEST": {
         "MODES": {
