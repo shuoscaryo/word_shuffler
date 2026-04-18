@@ -1,0 +1,23 @@
+Word,Reading,Translation,Category
+一,いち,uno,number
+二,に,dos,number
+三,さん,tres,number
+四,よん,cuatro,number
+五,ご,cinco,number
+六,ろく,seis,number
+七,なな,siete,number
+八,はち,ocho,number
+九,きゅう,nueve,number
+十,じゅう,diez,number
+百,ひゃく,cien,number
+千,せん,mil,number
+一万,いちまん,diez mil,number
+今,いま,ahora,time
+時,じ,hora (contador),counter
+何時,なんじ,qué hora,time
+すみません,すみません,perdón / disculpe,expression
+ごろ,ごろ,aprox (hora),time
+分,ふん / ぷん / ぶん,minutos,counter
+半,はん,y media / mitad,time
+午前,ごぜん,a.m.,time
+午後,ごご,p.m.,time
