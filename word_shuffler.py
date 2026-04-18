@@ -46,6 +46,7 @@ from my_logger import logger, setup_logger
 import pandas as pd
 import random
 import sys
+import german.modes
 
 # =============================================================================
 # GLOBAL DEFINES
@@ -105,194 +106,6 @@ class ModeSelector:
 
 #CSV_COLUMNS = ["Article", "Word", "Plural", "Translation", "Category"]
 # =============================================================================
-
-def word_from_row(row: tuple, plural: bool = False) -> str:
-    """
-    Creates the word from the row with the article if exists. The plural option
-    generates the plural version "die + row.Plural". If Word or Plural columns
-    are empty in each case, it returns empty string.
-
-    Args:
-    - row: Pandas row from itertuples() function.
-    - plural: Flag to select plural (true) or normal (false) versions.
-
-    Returns:
-    - str: Word with the article if exists.
-
-    Raises:
-    None
-    """
-    # Get article and word
-    if plural == False:
-        article = row.Article if isinstance(row.Article, str) else ""
-        word = row.Word
-    else:
-        article = "die"
-        word = row.Plural
-    # Check for empty word
-    if not isinstance(word, str) or len(word) == 0:
-        return ""
-    return f"{article} {word}".strip()
-    
-
-def mode_ge_normal(
-    df: pd.DataFrame,
-    args: argparse.Namespace
-) -> list[tuple[str, str]]:
-    """
-    Generates a list containing a pair "Test" and "Expected".
-    "Test" are any german words/phrases, adds the article if it's a noun.
-    "Expected" are the translations.
-    The length of the list is args.test_length.
-
-    Args:
-    - df: Dataframe from where the words will be sampled
-    - args: input arguments of the program
-
-    Returns:
-    - list[tuple[str,str]]: List containing "Test" "Expected" pairs.
-
-    Raises:
-    None
-    """
-    output_list = []
-    for row in df.itertuples():
-        if args.no_show_category:
-            test = word_from_row(row, plural = False)
-        else:
-            test = f"[{row.Category}] {word_from_row(row, plural = False)}"
-        expected = row.Translation
-        output_list.append((test, expected))
-    return output_list
-
-
-def mode_ge_inverted(
-    df: pd.DataFrame,
-    args: argparse.Namespace
-) -> list[tuple[str, str]]:
-    """
-    Generates a list containing a pair "Test" and "Expected".
-    "Test" are translated words.
-    "Expected" are the german words.
-    The length of the list is args.test_length.
-
-    Args:
-    - df: Dataframe from where the words will be sampled
-    - args: input arguments of the program
-
-    Returns:
-    - list[tuple[str,str]]: List containing "Test" "Expected" pairs.
-
-    Raises:
-    None
-    """
-    output_list = []
-    for row in df.itertuples():
-        if args.no_show_category:
-            test = row.Translation
-        else:
-            test = f"[{row.Category}] {row.Translation}"
-        expected = word_from_row(row, plural = False)
-        output_list.append((test, expected))
-    return output_list
-
-
-def mode_ge_both(
-    df: pd.DataFrame,
-    args: argparse.Namespace
-) -> list[tuple[str, str]]:
-    """
-    Generates a list containing a pair "Test" and "Expected".
-    "Test" some german some translated words.
-    "Expected" some german some translated words.
-    The length of the list is args.test_length.
-
-    Args:
-    - df: Dataframe from where the words will be sampled
-    - args: input arguments of the program
-
-    Returns:
-    - list[tuple[str,str]]: List containing "Test" "Expected" pairs.
-
-    Raises:
-    None
-    """
-    list_german = mode_ge_normal(df, args)
-    list_german = list_german[:len(list_german)//2]
-    list_german = [(f"(German) {i[0]}", i[1]) for i in list_german]
-
-    list_translated = mode_ge_inverted(df, args)
-    list_translated = list_translated[:len(list_translated)//2]
-    list_translated = [(f"(Translated) {i[0]}", i[1]) for i in list_translated]
-
-    output_list = list_german + list_translated
-    return output_list
-
-
-def mode_ge_plural(
-    df: pd.DataFrame,
-    args: argparse.Namespace
-) -> list[tuple[str, str]]:
-    """
-    Generates a list containing a pair "Test" and "Expected".
-    "Test" are singular german nouns.
-    "Expected" are plural german nouns.
-    The length of the list is args.test_length.
-
-    Args:
-    - df: Dataframe from where the words will be sampled
-    - args: input arguments of the program
-
-    Returns:
-    - list[tuple[str,str]]: List containing "Test" "Expected" pairs.
-
-    Raises:
-    None
-    """
-    # filter only nouns
-    sample = df[df["Category"] == "noun"]
-
-    output_list = []
-    for row in sample.itertuples():
-        test = word_from_row(row, plural = False)
-        expected = word_from_row(row, plural = True)
-        if len(expected) == 0:
-            continue
-        expected = f"{expected} ({row.Translation})"
-        output_list.append((test, expected))
-    return output_list
-
-
-def mode_ge_article(
-    df: pd.DataFrame,
-    args: argparse.Namespace
-) -> list[tuple[str, str]]:
-    """
-    Generates a list containing a pair "Test" and "Expected".
-    "Test" are singular german nouns without article.
-    "Expected" are the nouns with the article.
-    The length of the list is args.test_length.
-
-    Args:
-    - df: Dataframe from where the words will be sampled
-    - args: input arguments of the program
-
-    Returns:
-    - list[tuple[str,str]]: List containing "Test" "Expected" pairs.
-
-    Raises:
-    None
-    """
-    # filter only nouns
-    df = df[df["Category"] == "noun"]
-
-    output_list = []
-    for row in df.itertuples():
-        test = row.Word
-        expected = word_from_row(row, plural = False)
-        output_list.append((test, expected))
-    return output_list
-
 
 def read_csv_list(csv_list: list[str]) -> pd.DataFrame:
     # Create a list with all the words
@@ -458,11 +271,11 @@ if __name__ == "__main__":
     # =========================================================================
     # ADD MODES HERE
         # german
-    ModeSelector.add("german", "normal", "shows singular in german, expects translation", mode_ge_normal)
-    ModeSelector.add("german", "inverted", "shows translation, expects german singular", mode_ge_inverted)
-    ModeSelector.add("german", "both", "some normal, some inverted", mode_ge_both)
-    ModeSelector.add("german", "plural", "shows singular in german, expects plural in german", mode_ge_plural)
-    ModeSelector.add("german", "article", "shows singular in german, expects article", mode_ge_article)
+    ModeSelector.add("german", "normal", "shows singular in german, expects translation", german.modes.normal)
+    ModeSelector.add("german", "inverted", "shows translation, expects german singular", german.modes.inverted)
+    ModeSelector.add("german", "both", "some normal, some inverted", german.modes.both)
+    ModeSelector.add("german", "plural", "shows singular in german, expects plural in german", german.modes.plural)
+    ModeSelector.add("german", "article", "shows singular in german, expects article", german.modes.article)
         # japanese
     # =========================================================================
     parser, args = parse_args()
