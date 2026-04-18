@@ -1,5 +1,3 @@
-#TODO Check duplicates on multiple csv
-
 # =============================================================================
 #
 # To know what this script does or what options it has use the flag "-h":
@@ -41,41 +39,74 @@
 # =============================================================================
 
 import argparse
-import logging
-import sys
-import os
+from my_logger import logger, setup_logger
 
 # =============================================================================
 # MORE IMPORTS HERE
 import pandas as pd
 import random
+import sys
 
 # =============================================================================
 # GLOBAL DEFINES
-MODES = {
-    "TEST": {
-        "MODES": {
-            "german": "shows singular in german, expects translation",
-            "translated": "shows translation, expects german",
-            "both":
-                "mix 50%% german, 50%% translated."
-                "Words can repeat in both sets",
-            "plural": "shows singular in german, expects plural",
-            "article": "shows singular in german, expects article",
-        },
-        "HELP": "Prompts the words before showing the answer"
-    },
-    "TRAIN": {
-        "MODES": {
-            "train": "german <plural> -> translated",
-        },
-        "HELP": "Shows all the sample at once with the answer"
-    }
-}
+from typing import Callable
+
+class ModeSelector:
+    # modes = {
+    #   "lang1": {
+    #       "mode1": {"function": func, "description": "text"}
+    #   },
+    #   ...
+    # }
+    modes = {}
+
+    def add(
+        language: str,
+        mode: str,
+        description: str,
+        function: Callable[[pd.DataFrame, argparse.Namespace], list[tuple[str, str]]]
+    ) -> None:
+        # Create a new tag for the language
+        if not language in ModeSelector.modes:
+            ModeSelector.modes[language] = {}
+        # Don't allow duplicated additions
+        if mode in ModeSelector.modes[language]:
+            logger.error(f"Mode \"{mode}\" already in language \"{language}\"")
+            return
+        # Add the mode
+        ModeSelector.modes[language][mode] = {
+            "description": description,
+            "function": function
+        }
+    
+    def func(language: str, mode: str) -> Callable[[pd.DataFrame, argparse.Namespace], list[tuple[str, str]]]:
+        return ModeSelector.modes[language][mode]["function"]
+    
+    def lang_help() -> str:
+        str_list = []
+        mode_help = "What language to use.\n"
+        str_list.append(mode_help)
+        for lang in ModeSelector.modes.keys():
+            str_list.append(f"\t- {lang}\n")
+        return "".join(str_list)
+    
+    def mode_help() -> str:
+        str_list = []
+        mode_help = "What kind of test to do with the selected language.\n"\
+            "For each language there are different available modes.\n"
+        str_list.append(mode_help)
+        for lang, modes in ModeSelector.modes.items():
+            str_list.append(f"> {lang}:\n")
+            for mode, content in modes.items():
+                str_list.append(f'\t- {mode}: {content["description"]}\n')
+        return "".join(str_list)
+
+
+
 #CSV_COLUMNS = ["Article", "Word", "Plural", "Translation", "Category"]
 # =============================================================================
 
-def _word_from_row(row: tuple, plural: bool = False) -> str:
+def word_from_row(row: tuple, plural: bool = False) -> str:
     """
     Creates the word from the row with the article if exists. The plural option
     generates the plural version "die + row.Plural". If Word or Plural columns
@@ -104,7 +135,7 @@ def _word_from_row(row: tuple, plural: bool = False) -> str:
     return f"{article} {word}".strip()
     
 
-def _mode_german(
+def mode_ge_normal(
     df: pd.DataFrame,
     args: argparse.Namespace
 ) -> list[tuple[str, str]]:
@@ -124,19 +155,18 @@ def _mode_german(
     Raises:
     None
     """
-    sample = df.sample(args.length)
     output_list = []
-    for row in sample.itertuples():
+    for row in df.itertuples():
         if args.no_show_category:
-            test = _word_from_row(row, plural = False)
+            test = word_from_row(row, plural = False)
         else:
-            test = f"[{row.Category}] {_word_from_row(row, plural = False)}"
+            test = f"[{row.Category}] {word_from_row(row, plural = False)}"
         expected = row.Translation
         output_list.append((test, expected))
     return output_list
 
 
-def _mode_translated(
+def mode_ge_inverted(
     df: pd.DataFrame,
     args: argparse.Namespace
 ) -> list[tuple[str, str]]:
@@ -156,19 +186,18 @@ def _mode_translated(
     Raises:
     None
     """
-    sample = df.sample(args.length)
     output_list = []
-    for row in sample.itertuples():
+    for row in df.itertuples():
         if args.no_show_category:
             test = row.Translation
         else:
             test = f"[{row.Category}] {row.Translation}"
-        expected = _word_from_row(row, plural = False)
+        expected = word_from_row(row, plural = False)
         output_list.append((test, expected))
     return output_list
 
 
-def _mode_both(
+def mode_ge_both(
     df: pd.DataFrame,
     args: argparse.Namespace
 ) -> list[tuple[str, str]]:
@@ -188,20 +217,19 @@ def _mode_both(
     Raises:
     None
     """
-    list_german = _mode_german(df, args)
+    list_german = mode_ge_normal(df, args)
     list_german = list_german[:len(list_german)//2]
     list_german = [(f"(German) {i[0]}", i[1]) for i in list_german]
 
-    list_translated = _mode_translated(df, args)
+    list_translated = mode_ge_inverted(df, args)
     list_translated = list_translated[:len(list_translated)//2]
     list_translated = [(f"(Translated) {i[0]}", i[1]) for i in list_translated]
 
     output_list = list_german + list_translated
-    random.shuffle(output_list)
     return output_list
 
 
-def _mode_plural(
+def mode_ge_plural(
     df: pd.DataFrame,
     args: argparse.Namespace
 ) -> list[tuple[str, str]]:
@@ -222,13 +250,12 @@ def _mode_plural(
     None
     """
     # filter only nouns
-    df = df[df["Category"] == "noun"]
-    sample = df.sample(args.length)
+    sample = df[df["Category"] == "noun"]
 
     output_list = []
     for row in sample.itertuples():
-        test = _word_from_row(row, plural = False)
-        expected = _word_from_row(row, plural = True)
+        test = word_from_row(row, plural = False)
+        expected = word_from_row(row, plural = True)
         if len(expected) == 0:
             continue
         expected = f"{expected} ({row.Translation})"
@@ -236,7 +263,7 @@ def _mode_plural(
     return output_list
 
 
-def _mode_article(
+def mode_ge_article(
     df: pd.DataFrame,
     args: argparse.Namespace
 ) -> list[tuple[str, str]]:
@@ -258,160 +285,69 @@ def _mode_article(
     """
     # filter only nouns
     df = df[df["Category"] == "noun"]
-    sample = df.sample(args.length)
 
     output_list = []
-    for row in sample.itertuples():
+    for row in df.itertuples():
         test = row.Word
-        expected = _word_from_row(row, plural = False)
+        expected = word_from_row(row, plural = False)
         output_list.append((test, expected))
     return output_list
 
 
-def _mode_train(
-    df: pd.DataFrame,
-    args: argparse.Namespace
-) -> list[tuple[str, str]]:
-    """
-    Generates a list containing a pair "Test" and "Expected".
-    "Test" are singular german nouns without article.
-    "Expected" are the nouns with the article.
-    The length of the list is args.test_length.
-
-    Args:
-    - df: Dataframe from where the words will be sampled
-    - args: input arguments of the program
-
-    Returns:
-    - list[tuple[str,str]]: List containing "German" "Translated" pairs.
-
-    Raises:
-    None
-    """
-    # filter only nouns
-    sample = df.sample(args.length)
-    output_list = []
-    for row in sample.itertuples():
-        word = _word_from_row(row, plural = False)
-        if row.Category == "Noun":
-            plural = _word_from_row(row, plural = True)
-            word = f"{word}, {plural}"
-        if not args.no_show_category:
-            word = f"[{row.Category}] {word}"
-        output_list.append((word, row.Translation))
-    return output_list
-
-def _read_csv_list(csv_list: list[str]) -> pd.DataFrame:
-    """
-    Takes a list of filenames of csv files, reads them all and joins them
-    into a single pd.DataFrame. The resulting pd.DataFrame columns are all
-    merged from each csv, so if a file has missing something the column will
-    be filled with NA.
-
-    Args:
-    - csv_list: List of paths of csv files
-
-    Returns:
-    Dataframe with all the csv files merged into one.
-
-    Raises:
-    - ValueError: if df_list is empty after all files
-    """
+def read_csv_list(csv_list: list[str]) -> pd.DataFrame:
+    # Create a list with all the words
     df_list = []
     for csv in csv_list:
         try:
+            logger.info(f"Reading file {csv}")
             df = pd.read_csv(csv)
             df_list.append(df)
         except:
             logger.error(f"Couldn't read file {csv}. Skipping")
+    if not df_list:
+        return pd.DataFrame()
     output_df = pd.concat(df_list, ignore_index = True)
+
+    # normalize text columns, to lower, no spaces, no duplicates
+    for col in output_df.select_dtypes(include="object").columns:
+        output_df[col] = output_df[col].str.lower().str.strip()
+    output_df = output_df.drop_duplicates()
+
     return output_df
 
 
-def _modes_has_duplicates(modes: dict) -> bool:
-    """
-    Checks if the MODES has duplicate modes in diferent categories.
-    Returns true if there are, and false if not
-
-    Args:
-    - modes: dictionary with the modes. "MODES" variable
-
-    Returns:
-    true if there are duplicates, false if not
-
-    Raises:
-    None
-    """    
-    keys = list(MODES.keys())
-    for i in range(len(keys)):
-        for j in range(i + 1, len(keys)):
-            list_i = [x.lower() for x in MODES[keys[i]]["MODES"]]
-            list_j = [x.lower() for x in MODES[keys[j]]["MODES"]]
-            duplicates_list = [k for k in list_i if k in list_j]
-            if len(duplicates_list) > 0:
-                logger.error(
-                    f"Duplicates in MODE found:\n"
-                    f"\tMODE[{keys[i]}], MODE[{keys[j]}] -> {duplicates_list}"
-                )
-                return 1
-    return 0
-
-
-def _main(args: argparse.Namespace) -> int:
-    """
-    Entry point of the program. Args can be modified in 'parse_args()'.
-
-    Args:
-    - args (argparse.Namespace): Arguments parsed from the command line.
-        Accesible by key 'args.example'. A key can be modified.
-        eg. args.name = 'hello'
-
-    Returns:
-    - int: Exit code (0 = success, other values = error).
-
-    Raises:
-    None
-    """
-    # check that modes is not repeated
-    if _modes_has_duplicates(MODES):
-        return 1
-
+def main(args: argparse.Namespace) -> int:    
     # load data
-    try:
-        df = _read_csv_list(args.input_csv)
-    except:
-        logger.error("Couldn't get a DataFrame from the csv list provided."
-            f"\n\t{args.input_csv}")
+    df = read_csv_list(args.input_csv)
+    logger.info(f"Words in input: {len(df)}")
+    if (df.empty):
+        logger.error(f"Exiting ...")
         return 1
 
-    # Adjust length
-    if (args.length is None):
-        args.length = len(df)
-    else:
-        args.length = min(len(df), args.length)
+    # Call the function that generates the values
+    pair_list = ModeSelector.func(args.lang, args.mode)(df, args)
+    logger.info(f"Total words for mode {args.mode}: {len(pair_list)}")
 
-    # Call the "_mode_*" functions that matches args.mode
-    pair_list = globals()[f"_mode_{args.mode}"](df, args)
-    total = len(pair_list)
+    # trim and shuffle
+    total = len(pair_list) if args.length is None else min(len(pair_list), args.length)
+    subset = random.sample(pair_list, total)
+    logger.info(f"subset size: {total}")
 
+    # Print
     for i in range(total):
-        pair = pair_list[i]
-        if (args.mode in MODES["TEST"]["MODES"]):
-            str = input(f"[{i + 1}/{total}] {pair[0]}: ")
-            if (str != ""):
-                print(f"\t{pair[0]} -> {pair[1]}")
-            else:
-                RED = "\033[91m"
-                RESET = "\033[0m"
-                print(f"\t{RED}{pair[0]} -> {pair[1]}{RESET}")
-
-        elif (args.mode in MODES["TRAIN"]["MODES"]):
+        pair = subset[i]
+        if (args.train):
             print(f"[{i + 1}/{total}] {pair[0]} -> {pair[1]}")
+        else:
+            input(f"[{i + 1}/{total}] {pair[0]}: ")
+            RED = "\033[91m"
+            RESET = "\033[0m"
+            print(f"\t{RED}{pair[0]} -> {pair[1]}{RESET}")
 
     return 0
 
 
-def _parse_args() -> argparse.Namespace:
+def parse_args() -> tuple[argparse.ArgumentParser, argparse.Namespace]:
     """
     This is the function used to configure what args the program has. Write the
     new args as in the examples below.
@@ -431,9 +367,9 @@ def _parse_args() -> argparse.Namespace:
     """
     parser = argparse.ArgumentParser(
         description = "Reads the words from the input_csv and displays some "
-            " depending on the options to check if you know them!",
+            "to check if you know them!",
         formatter_class=argparse.RawTextHelpFormatter,
-        epilog = f"Example: python3 {__file__} german file.csv",
+        epilog = f"Example: python3 {__file__} --lang german --mode normal --input-csv file.csv file2.csv",
     )
     # Default flag for setting how deep the logs should go
     parser.add_argument(
@@ -456,43 +392,38 @@ def _parse_args() -> argparse.Namespace:
     # WRITE ARGS HERE
     # - Positional
     # parser.add_argument("name", type = str, help = "")
-    # generate the choices
-    mode_choices = []
-    for mode in MODES:
-        mode_choices.extend(MODES[mode]["MODES"])
-    # generate description for every mode
-    str_list = []
-    mode_help = "What kind of test to do."
-    str_list.append(mode_help)
-    str_list.append("\n")
-    for key, mode_type in MODES.items():
-        str_list.append(f'* {key}: {mode_type["HELP"]}\n')
-        for mode, help in mode_type["MODES"].items():
-            str_list.append(f"\t- {mode}: {help}\n")
-    mode_help = "".join(str_list)
 
+    # - Flag
+    # parser.add_argument('-s', '--skip-gaps', action='store_true', required = False, help = "")
     parser.add_argument(
-        'mode',
-        choices = mode_choices,
-        type = str.lower,
-        help = mode_help
+        '-t', '--train',
+        action='store_true',
+        required = False,
+        help = "If set to true, will just print the words and results all at once"
     )
-    parser.add_argument(
-        "input_csv",
-        type = str,
-        nargs="+", # allows for infinite amount
-        help = "Paths to the csvs with the words."
-    )
-    # - Optional
-    # -- Flag
-    # parser.add_argument('-s', '--skip-gaps', action='store_true', help="")
-    parser.add_argument(
-        '--no-show-category',
-        action = 'store_true',
-        help = "Don't show the category of the word in test."
-    )
+
     # -- With content "--output file.txt"
     # parser.add_argument('-o', '--output', type = str, help = "")
+    parser.add_argument(
+        "--lang",
+        choices = ModeSelector.modes.keys(),
+        type = str.lower,
+        required = True,
+        help = ModeSelector.lang_help()
+    )
+    parser.add_argument(
+        '--mode',
+        type = str.lower,
+        required = True,
+        help = ModeSelector.mode_help()
+    )
+    parser.add_argument(
+        "--input-csv",
+        type=str,
+        nargs="+",
+        required=True,
+        help="Paths to the csvs with the words."
+    )
     parser.add_argument(
         '-l',
         '--length',
@@ -500,76 +431,45 @@ def _parse_args() -> argparse.Namespace:
         type = int,
         help = "How many words to show in test. If not set, takes all",
     )
-    ### NO MORE ARGS BELOW THIS
+    parser.add_argument(
+        '--no-show-category',
+        action = 'store_true',
+        help = "Don't show the category of the word in test.",
+    )
     # =========================================================================
+    # No params prints help
     if len(sys.argv) == 1:
         parser.print_help(sys.stderr)
         sys.exit(1)
+
     args = parser.parse_args()
-    # =========================================================================
-    # ARG VALUE CHECK
-    # if condition:
-    #   parser.error("") # Terminates program
-    if args.length is not None and args.length < 0:
-        parser.error("argument --test-length must be greater than 0.")
-    # =========================================================================
+
+    # VALIDATE INPUTS HERE
+    if args.mode not in ModeSelector.modes[args.lang]:
+        parser.error(f"Invalid mode {args.mode} for language {args.lang}")
+
+    if args.length is not None and args.length <= 0:
+        parser.error("argument --length must be greater than 0.")
+    
     return parser, args
 
 
-def _setup_logger(args: argparse.Namespace) -> None:
-    """
-    Handles what level to show and the format of the messages while logging.
-
-    Args:
-    - args (argparse.Namespace): Arguments parsed from the command line.
-        Expected attributes:
-            - log_level (int): 0 (DEBUG) to 4 (CRITICAL)
-            - log_file (str or None) (optional): path to a log file
-
-    Returns:
-    - None
-
-    Raises:
-    - ValueError: if "args.log_level" is out of range.
-    """
-    if not 0 <= args.log_level <= 4:
-        raise ValueError("--log-level must be between 0 and 4")
-    LEVELS = [
-        logging.DEBUG,     # 0
-        logging.INFO,      # 1
-        logging.WARNING,   # 2
-        logging.ERROR,     # 3
-        logging.CRITICAL,  # 4
-    ]
-
-    handlers = []
-    if args.log_file == "stderr":
-        handlers.append(logging.StreamHandler(sys.stderr))
-    elif args.log_file == "stdout":
-        handlers.append(logging.StreamHandler(sys.stdout))
-    elif args.log_file:
-        os.makedirs(os.path.dirname(args.log_file) or ".", exist_ok=True)
-        handlers.append(logging.FileHandler(args.log_file, mode="w", encoding="utf-8"))
-
-    logging.basicConfig(
-        format="%(asctime)s %(levelname)s | %(filename)s:%(lineno)d: %(message)s",
-        datefmt="%H:%M:%S",
-        handlers=handlers,
-        force=True,
-    )
-
-    logger = logging.getLogger(__name__)
-    logger.setLevel(LEVELS[args.log_level])
-
-    return logger
-
-
 if __name__ == "__main__":
-    parser, args = _parse_args()
-    logger = _setup_logger(args)
+    # =========================================================================
+    # ADD MODES HERE
+        # german
+    ModeSelector.add("german", "normal", "shows singular in german, expects translation", mode_ge_normal)
+    ModeSelector.add("german", "inverted", "shows translation, expects german singular", mode_ge_inverted)
+    ModeSelector.add("german", "both", "some normal, some inverted", mode_ge_both)
+    ModeSelector.add("german", "plural", "shows singular in german, expects plural in german", mode_ge_plural)
+    ModeSelector.add("german", "article", "shows singular in german, expects article", mode_ge_article)
+        # japanese
+    # =========================================================================
+    parser, args = parse_args()
+    setup_logger(args.log_level, args.log_file)
     if not parser.description.strip():
         logger.warning("Parser has no description.")
-    result = _main(args)
+    result = main(args)
     if not isinstance(result, int):
         logger.warning(
             f"_main() returned {type(result).__name__}, expected int. "
