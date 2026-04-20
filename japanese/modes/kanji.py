@@ -1,8 +1,14 @@
 import pandas as pd
 import argparse
-from . import utils
+from my_logger import logger
 
-def inverted(
+def _hasKanji(word: str) -> bool:
+    if not isinstance(word, str):
+        return False
+    return any('\u4e00' <= ch <= '\u9fff' for ch in word)
+
+
+def kanji(
     df: pd.DataFrame,
     args: argparse.Namespace
 ) -> list[tuple[str, str]]:
@@ -22,11 +28,13 @@ def inverted(
     None
     """
     output_list = []
-    for row in df.itertuples():
-        if args.no_show_category:
-            test = row.Translation
-        else:
-            test = f"[{row.Category}] {row.Translation}"
-        expected = utils.word_from_row(row, plural = False)
+
+    mask = df["Word"].apply(_hasKanji)
+    filtered_df = df[mask]
+
+    for row in filtered_df.itertuples():
+        test = row.Word
+        expected = f"{row.Translation} ({row.Reading})"
         output_list.append((test, expected))
+
     return output_list

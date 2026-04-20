@@ -8,9 +8,8 @@ def article(
 ) -> list[tuple[str, str]]:
     """
     Generates a list containing a pair "Test" and "Expected".
-    "Test" are singular german nouns without article.
-    "Expected" are the nouns with the article.
-    The length of the list is args.test_length.
+    "Test" is the prompt that will be shown.
+    "Expected" is the expected answer for each prompt.
 
     Args:
     - df: Dataframe from where the words will be sampled

@@ -8,9 +8,8 @@ def both(
 ) -> list[tuple[str, str]]:
     """
     Generates a list containing a pair "Test" and "Expected".
-    "Test" some german some translated words.
-    "Expected" some german some translated words.
-    The length of the list is args.test_length.
+    "Test" is the prompt that will be shown.
+    "Expected" is the expected answer for each prompt.
 
     Args:
     - df: Dataframe from where the words will be sampled

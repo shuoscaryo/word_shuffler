@@ -8,9 +8,8 @@ def normal(
 ) -> list[tuple[str, str]]:
     """
     Generates a list containing a pair "Test" and "Expected".
-    "Test" are any german words/phrases, adds the article if it's a noun.
-    "Expected" are the translations.
-    The length of the list is args.test_length.
+    "Test" is the prompt that will be shown.
+    "Expected" is the expected answer for each prompt.
 
     Args:
     - df: Dataframe from where the words will be sampled

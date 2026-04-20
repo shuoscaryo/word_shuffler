@@ -1,0 +1,1 @@
+from .kanji import kanji

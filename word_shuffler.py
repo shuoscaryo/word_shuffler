@@ -47,6 +47,7 @@ import pandas as pd
 import random
 import sys
 import german.modes
+import japanese.modes
 
 # =============================================================================
 # GLOBAL DEFINES
@@ -277,11 +278,13 @@ if __name__ == "__main__":
     ModeSelector.add("german", "plural", "shows singular in german, expects plural in german", german.modes.plural)
     ModeSelector.add("german", "article", "shows singular in german, expects article", german.modes.article)
         # japanese
+    ModeSelector.add("japanese", "kanji", "shows word with kanji expects pronunciation and meaning", japanese.modes.kanji)
     # =========================================================================
     parser, args = parse_args()
     setup_logger(args.log_level, args.log_file)
     if not parser.description.strip():
         logger.warning("Parser has no description.")
+    print(vars(args))
     result = main(args)
     if not isinstance(result, int):
         logger.warning(
