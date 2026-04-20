@@ -2,8 +2,7 @@ import pandas as pd
 import argparse
 from . import utils
 
-
-def kanji(
+def normal(
     df: pd.DataFrame,
     args: argparse.Namespace
 ) -> list[tuple[str, str]]:
@@ -24,12 +23,12 @@ def kanji(
     """
     output_list = []
 
-    mask = df["Word"].apply(utils.hasKanji)
-    filtered_df = df[mask]
-
-    for row in filtered_df.itertuples():
-        test = row.Word
-        expected = f"{row.Translation} ({row.Reading})"
+    for row in df.itertuples():
+        if (utils.hasKanji(row.Word)):
+            test = f"{row.Word} ({row.Reading})"
+        else:
+            test = row.Word
+        expected = row.Translation
         output_list.append((test, expected))
 
     return output_list

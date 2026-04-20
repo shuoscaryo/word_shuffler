@@ -278,6 +278,8 @@ if __name__ == "__main__":
     ModeSelector.add("german", "plural", "shows singular in german, expects plural in german", german.modes.plural)
     ModeSelector.add("german", "article", "shows singular in german, expects article", german.modes.article)
         # japanese
+    ModeSelector.add("japanese", "normal", "shows japanese plus reading, expects meaning", japanese.modes.normal)
+    ModeSelector.add("japanese", "inverted", "shows meaning, expects japanese", japanese.modes.inverted)
     ModeSelector.add("japanese", "kanji", "shows word with kanji expects pronunciation and meaning", japanese.modes.kanji)
     # =========================================================================
     parser, args = parse_args()
