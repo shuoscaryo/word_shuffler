@@ -5,7 +5,7 @@ Word,Reading,Translation,Category
 秋,あき,otoño,noun
 冬,ふゆ,invierno,noun
 天気,てんき,tiempo (clima),noun
-暖かい,あたたかい,templado / cálido,adjective
+暖かい,あたたかい,templado,adjective
 晴れ,hare,soleado / buen tiempo,noun
 海,うみ,mar,noun
 花火,はなび,fuegos artificiales,noun
@@ -15,5 +15,5 @@ Word,Reading,Translation,Category
 コンサート,こんさーと,concierto,noun
 雪,ゆき,nieve,noun
 寒い,さむい,frío (clima),adjective
-ココア,ここあ,colacao / cacao / chocolate caliente,noun
+ココア,ここあ,cacao / chocolate caliente,noun
 温泉,おんせん,aguas termales,noun
