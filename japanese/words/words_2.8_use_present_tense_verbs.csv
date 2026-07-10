@@ -13,20 +13,20 @@ Word,Reading,Translation,Category
 テニス,てにす,tenis,noun
 柔道,じゅうどう,judo,noun
 動画,どうが,vídeo,noun
-今日,きょう,hoy,time
-明日,あした,mañana,time
-昨日,きのう,ayer,time
-一昨日,おととい,anteayer,time
-週,しゅう,semana,time
-週末,しゅうまつ,fin de semana,time
+今日,きょう,hoy,noun
+明日,あした,mañana,noun
+昨日,きのう,ayer,noun
+一昨日,おととい,anteayer,noun
+週,しゅう,semana,noun
+週末,しゅうまつ,fin de semana,noun
 日,ひ,día,counter
 月,つき / げつ,mes / luna,noun
-年,とし / ねん,año,time
-曜日,ようび,día de la semana,time
-月曜日,げつようび,lunes,time
-火曜日,かようび,martes,time
-水曜日,すいようび,miércoles,time
-木曜日,もくようび,jueves,time
-金曜日,きんようび,viernes,time
-土曜日,どようび,sábado,time
-日曜日,にちようび,domingo,time
+年,とし / ねん,año,noun
+曜日,ようび,día de la semana,noun
+月曜日,げつようび,lunes,noun
+火曜日,かようび,martes,noun
+水曜日,すいようび,miércoles,noun
+木曜日,もくようび,jueves,noun
+金曜日,きんようび,viernes,noun
+土曜日,どようび,sábado,noun
+日曜日,にちようび,domingo,noun

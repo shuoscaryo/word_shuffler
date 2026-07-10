@@ -12,12 +12,12 @@ Word,Reading,Translation,Category
 百,ひゃく,cien,number
 千,せん,mil,number
 一万,いちまん,diez mil,number
-今,いま,ahora,time
+今,いま,ahora,noun
 時,じ,hora (contador),counter
-何時,なんじ,qué hora,time
+何時,なんじ,qué hora,noun
 すみません,すみません,perdón / disculpe,expression
-ごろ,ごろ,aprox (hora),time
+ごろ,ごろ,aprox (hora),particle
 分,ふん / ぷん / ぶん,minutos,counter
-半,はん,y media / mitad,time
-午前,ごぜん,a.m.,time
-午後,ごご,p.m.,time
+半,はん,y media / mitad,noun
+午前,ごぜん,a.m.,noun
+午後,ごご,p.m.,noun
