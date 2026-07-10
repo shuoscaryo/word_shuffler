@@ -286,7 +286,6 @@ if __name__ == "__main__":
     setup_logger(args.log_level, args.log_file)
     if not parser.description.strip():
         logger.warning("Parser has no description.")
-    print(vars(args))
     result = main(args)
     if not isinstance(result, int):
         logger.warning(
