@@ -4,10 +4,10 @@ Word,Reading,Translation,Category
 会社,かいしゃ,empresa,noun
 図書館,としょかん,biblioteca,noun
 辞書,じしょ,diccionario,noun
-翻訳,ほんやく,traducción,noun
+翻訳,ほんやく (ほんやくします),traducción,noun
 翻訳家,ほんやくか,traductor,noun
 ナビ,なび,gps,noun
-運転,うんてん,conducción,noun
+運転,うんてん (うんてんします),conducción,noun
 午前,ごぜん,AM,noun
 洗う,あらう,lavar,verb
 運転手,うんてんしゅ,conductor,noun
@@ -18,4 +18,4 @@ Word,Reading,Translation,Category
 選手,せんしゅ,deportista,noun
 ジム,じむ,gimnasio,noun
 プロ,ぷろ,profesional,noun
-運動,うんどう,ejercicio,noun
+運動,うんどう (うんどうします),ejercicio,noun
