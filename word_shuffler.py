@@ -138,6 +138,11 @@ def main(args: argparse.Namespace) -> int:
         logger.error(f"Exiting ...")
         return 1
 
+    # Filter out categories
+    if (args.categories != None):
+        df = df[df["Category"].isin(args.categories)]
+        logger.info(f"Total words for categories {args.categories}: {len(df)}")
+
     # Call the function that generates the values
     pair_list = ModeSelector.func(args.lang, args.mode)(df, args)
     logger.info(f"Total words for mode {args.mode}: {len(pair_list)}")
@@ -249,6 +254,14 @@ def parse_args() -> tuple[argparse.ArgumentParser, argparse.Namespace]:
         '--no-show-category',
         action = 'store_true',
         help = "Don't show the category of the word in test.",
+    )
+    parser.add_argument(
+        '-c',
+        '--categories',
+        default = None,
+        type = str,
+        nargs="+",
+        help = "Categories that will be shown. If not set, shows all."
     )
     # =========================================================================
     # No params prints help
