@@ -1,0 +1,952 @@
+===== FILE: words_1.1_order_food.csv =====
+Word,Reading,Translation,Category
+お茶,おちゃ,té,noun
+水,みず,agua,noun
+ください,ください,por favor / deme,expression
+です,です,ser / es,copula
+ご飯,ごはん,arroz / comida,noun
+寿司,すし,sushi,noun
+と,と,y,particle
+
+===== FILE: words_1.2_describe_people.csv =====
+Word,Reading,Translation,Category
+やさしい,やさしい,amable / gentil,adjective
+医者,いしゃ,médico,noun
+先生,せんせい,profesor / maestro,noun
+学生,がくせい,estudiante,noun
+弁護士,べんごし,abogado,noun
+かっこいい,かっこいい,guapo / cool,adjective
+人,ひと,persona,noun
+
+===== FILE: words_1.3_introduce_yourself.csv =====
+Word,Reading,Translation,Category
+こんにちは,こんにちは,hola / buenas tardes,expression
+どうぞよろしくお願いします,どうぞよろしくおねがいします,encantado / mucho gusto,expression
+じゃあね,じゃあね,hasta luego (casual),expression
+こんばんは,こんばんは,buenas noches,expression
+また明日,またあした,hasta mañana,expression
+またね,またね,hasta luego (casual),expression
+
+===== FILE: words_1.4_order_food_and_drink.csv =====
+Word,Reading,Translation,Category
+ラーメン,らーめん,ramen,noun
+カレー,かれー,curry,noun
+これ,これ,esto,pronoun
+おいしい,おいしい,delicioso,adjective
+うまい,うまい,delicioso / bueno (casual),adjective
+ピザ,ぴざ,pizza,noun
+ケーキ,けーき,pastel / tarta,noun
+それ,それ,eso,pronoun
+コーヒー,こーひー,café,noun
+はい,はい,sí,expression
+いいえ,いいえ,no,expression
+好き,すき,gustar / gustar algo,adjective
+
+===== FILE: words_1.5_talk_about_countries.csv =====
+Word,Reading,Translation,Category
+日本,にほん,japón,noun
+アメリカ,あめりか,estados unidos,noun
+小さい,ちいさい,pequeño,adjective
+大きい,おおきい,grande,adjective
+イギリス,いぎりす,reino unido,noun
+
+===== FILE: words_1.6_ask_for_directions.csv =====
+Word,Reading,Translation,Category
+これ,これ,esto,pronoun
+それ,それ,eso,pronoun
+あれ,あれ,aquello,pronoun
+どれ,どれ,cuál,pronoun
+ここ,ここ,aquí,pronoun
+そこ,そこ,ahí,pronoun
+あそこ,あそこ,allí,pronoun
+どこ,どこ,dónde,pronoun
+この,この,este (antes de sustantivo),determiner
+その,その,ese (antes de sustantivo),determiner
+あの,あの,aquel (antes de sustantivo),determiner
+どの,どの,cuál (antes de sustantivo),determiner
+こちら,こちら,por aquí / este lado (formal),expression
+そちら,そちら,por ahí / ese lado (formal),expression
+あちら,あちら,por allí / aquel lado (formal),expression
+どちら,どちら,cuál / dónde (formal),expression
+ホテル,ほてる,hotel,noun
+コンビニ,こんびに,tienda 24h / convenience store,noun
+バス,ばす,autobús,noun
+デパート,でぱーと,grandes almacenes,noun
+大学,だいがく,universidad,noun
+店,みせ,tienda,noun
+駅,えき,estación,noun
+バス停,ばすてい,parada de autobús,noun
+
+===== FILE: words_1.7_describe_belongings.csv =====
+Word,Reading,Translation,Category
+私,わたし,yo,pronoun
+傘,かさ,paraguas,noun
+靴,くつ,zapatos,noun
+帽子,ぼうし,sombrero,noun
+赤い,あかい,rojo,adjective
+青い,あおい,azul,adjective
+白い,しろい,blanco,adjective
+黒い,くろい,negro,adjective
+コート,こーと,abrigo,noun
+
+===== FILE: words_1.8_talk_about_neighbors.csv =====
+Word,Reading,Translation,Category
+明るい,あかるい,luminoso / alegre,adjective
+面白い,おもしろい,interesante / divertido,adjective
+かわいい,かわいい,lindo / adorable,adjective
+いい,いい,bueno,adjective
+
+===== FILE: words_1.9_tell_time.csv =====
+Word,Reading,Translation,Category
+一,いち,uno,number
+二,に,dos,number
+三,さん,tres,number
+四,よん,cuatro,number
+五,ご,cinco,number
+六,ろく,seis,number
+七,なな,siete,number
+八,はち,ocho,number
+九,きゅう,nueve,number
+十,じゅう,diez,number
+百,ひゃく,cien,number
+千,せん,mil,number
+一万,いちまん,diez mil,number
+今,いま,ahora,noun
+時,じ,hora (contador),counter
+何時,なんじ,qué hora,noun
+すみません,すみません,perdón / disculpe,expression
+ごろ,ごろ,aprox (hora),particle
+分,ふん / ぷん / ぶん,minutos,counter
+半,はん,y media / mitad,noun
+午前,ごぜん,a.m.,noun
+午後,ごご,p.m.,noun
+===== FILE: words_2.10_describe_your_routine.csv =====
+Word,Reading,Translation,Category
+新聞,しんぶん,periódico,noun
+何時,なんじ,qué hora,noun
+ラジオ,らじお,radio,noun
+起きる,おきる (おきます),despertarse,verb
+いつも,いつも,siempre,adverb
+バレーボール,ばれーぼーる,voleibol,noun
+作る,つくる (つくります),hacer / crear,verb
+来週,らいしゅう,la próxima semana,noun
+寝る,ねる (ねます),dormir,verb
+メール,めーる,correo / email,noun
+シャワー,しゃわー,ducha,noun
+浴びる,あびる (あびます),ducharse,verb
+パスタ,ぱすた,pasta,noun
+走る,はしる (はしります),correr,verb
+
+===== FILE: words_2.11_talk_about_interests.csv =====
+Word,Reading,Translation,Category
+言う,いう (いいます),decir,verb
+彼氏,かれし,novio,noun
+上,うえ,arriba,noun
+下,した,abajo,noun
+左,ひだり,izquierda,noun
+右,みぎ,derecha,noun
+前,まえ,delante,noun
+後ろ,うしろ,detrás,noun
+隣,となり,al lado,noun
+そば,そば,cerca,expression
+中,なか,dentro,noun
+外,そと,fuera,noun
+間,あいだ,entre,noun
+男,おとこ,hombre,noun
+女,おんな,mujer,noun
+北,きた,norte,noun
+東,ひがし,este,noun
+西,にし,oeste,noun
+南,みなみ,sur,noun
+韓国,かんこく,corea,noun
+ベトナム,べとなむ,vietnam,noun
+彼女,かのじょ,novia,noun
+中国,ちゅうごく,china,noun
+趣味,しゅみ,hobby,noun
+ホラー,ほらー,terror,noun
+ファンタジー,ふぁんたじー,fantasía,noun
+どんな,どんな,qué tipo de,expression
+コメディ,こめでぃ,comedia,noun
+恋愛,れんあい,romance,noun
+アクション,あくしょん,acción,noun
+本当,ほんとう,verdad / realmente,noun
+
+===== FILE: words_2.12_describe_your_home.csv =====
+Word,Reading,Translation,Category
+アパート,あぱーと,apartamento,noun
+家,いえ,casa,noun
+引っ越す,ひっこす (ひっこします),mudarse,verb
+広い,ひろい,amplio,adjective
+まだ,まだ,todavía,adverb
+リビング,りびんぐ,salón,noun
+キッチン,きっちん,cocina,noun
+狭い,せまい,estrecho / pequeño,adjective
+ベッド,べっど,cama,noun
+エアコン,えあこん,aire acondicionado,noun
+本棚,ほんだな,estantería,noun
+掃除機,そうじき,aspiradora,noun
+布団,ふとん,futón,noun
+椅子,いす,silla,noun
+テーブル,てーぶる,mesa,noun
+多分,たぶん,quizás,adverb
+電子レンジ,でんしれんじ,microondas,noun
+机,つくえ,escritorio,noun
+いつ,いつ,cuándo,expression
+冷蔵庫,れいぞうこ,nevera,noun
+洗濯機,せんたくき,lavadora,noun
+今週,こんしゅう,esta semana,noun
+
+===== FILE: words_2.13_take_public_transit.csv =====
+Word,Reading,Translation,Category
+行く,いく (いきます),ir,verb
+電車,でんしゃ,tren,noun
+もうすぐ,もうすぐ,pronto,adverb
+次,つぎ,siguiente,noun
+来る,くる (きます),venir,verb
+公園,こうえん,parque,noun
+分,ふん / ぷん / ぶん,minutos,counter
+早い,はやい,temprano / rápido,adjective
+遅い,おそい,tarde / lento,adjective
+かかる,かかる (かかります),tardar / costar tiempo,verb
+ぐらい,ぐらい,aproximadamente,expression
+時間,じかん,tiempo / horas,noun
+どのぐらい,どのぐらい,cuánto / cuánto tiempo,expression
+長い,ながい,largo,adjective
+終点,しゅうてん,última parada,noun
+
+===== FILE: words_2.14_use_na_adjectives.csv =====
+Word,Reading,Translation,Category
+所,ところ,lugar,noun
+デザート,でざーと,postre,noun
+お寺,おてら,templo,noun
+神社,じんじゃ,santuario,noun
+花,はな,flor,noun
+お菓子,おかし,snack,noun
+お土産,おみやげ,souvenir,noun
+ポストカード,ぽすとかーど,tarjeta postal,noun
+建物,たてもの,edificio,noun
+===== FILE: words_2.15_get_emergency_help.csv =====
+Word,Reading,Translation,Category
+座る,すわる (すわります),sentarse,verb
+危ない,あぶない,peligroso,adjective
+大丈夫,だいじょうぶ,está bien / ok,expression
+具合,ぐあい,estado (de salud / condición),noun
+病院,びょういん,hospital,noun
+警察,けいさつ,policía,noun
+救急車,きゅうきゅうしゃ,ambulancia,noun
+休む,やすむ (やすみます),descansar,verb
+ゼロ,ぜろ,cero,number
+番号,ばんごう,número,noun
+近く,ちかく,cercano,adjective
+アレルギー,あれるぎー,alergia,noun
+両親,りょうしん,padres,noun
+ちゃんと,ちゃんと,correctamente / asegurarse de,adverb
+薬,くすり,medicina,noun
+===== FILE: words_2.16_talk_about_weather.csv =====
+Word,Reading,Translation,Category
+雨,あめ,lluvia,noun
+春,ハル,primavera,noun
+夏,なつ,verano,noun
+秋,あき,otoño,noun
+冬,ふゆ,invierno,noun
+天気,てんき,tiempo (clima),noun
+暖かい,あたたかい,templado,adjective
+晴れ,はれ,soleado / buen tiempo,noun
+海,うみ,mar,noun
+花火,はなび,fuegos artificiales,noun
+プール,ぷーる,piscina,noun
+暑い,あつい,calor (clima),adjective
+曇り,くもり,nublado,noun
+コンサート,こんさーと,concierto,noun
+雪,ゆき,nieve,noun
+寒い,さむい,frío (clima),adjective
+ココア,ここあ,cacao / chocolate caliente,noun
+温泉,おんせん,aguas termales,noun
+===== FILE: words_2.17_describe_your_family.csv =====
+Word,Reading,Translation,Category
+兄弟,きょうだい,siblings,noun
+オーストラリア,おおすとらりあ,Australia,noun
+マレーシア,まれーしや,Malasia,noun
+ソウル,そうる,Seúl,noun
+子供,こども,niño / hijos,noun
+出来る,できる (できます),poder / ser capaz de,verb
+===== FILE: words_2.18_discuss_chores.csv =====
+Word,Reading,Translation,Category
+仕事,しごと,trabajo,noun
+家事,かじ (かじします),chores,noun
+家,うち,hogar,noun
+帰る,かえる (かえります),regresar (a punto long term),verb
+後,あと,después / más tarde,noun
+手伝う,てつだう (てつだいます),ayudar,verb
+掃除,そうじ (そうじします),limpieza,noun
+宿題,しゅくだい,deberes,noun
+色々,いろいろ,variado / de todo tipo,adjective
+誰,だれ,quién,pronoun
+洗濯,せんたく (せんたくします),colada,noun
+お風呂,おふろ,bañera,noun
+大変,たいへん,duro / difícil / costoso,adjective
+そして,soshite,y / además / y luego,expression
+ストレッチ,すとれっち (すとれっちします),estiramiento / estirar,noun
+入る,はいる (はいります),entrar,verb
+物,もの,cosa (objeto físico),noun
+楽しい,たのしい,divertido,adjective
+料理,りょうり (りょうりします),cocina / plato / comida,noun
+ガーデニング,がーでにんぐ,jardinería,noun
+===== FILE: words_2.19_say_what_you_want_to_do.csv =====
+Word,Reading,Translation,Category
+来月,らいげつ,próximo mes,noun
+フランス,ふらんす,Francia,noun
+旅行,りょこう (りょこうします),viaje,noun
+会う,あう (あいます),quedar / encontrarse con alguien,verb
+スーツケース,すーつけーす,maleta,noun
+飛行機,ひこうき,avión,noun
+チケット,ちけっと,ticket,noun
+絵,え,pintura / dibujo / cuadro,noun
+美術館,びじゅつかん,museo de arte,noun
+ライオン,らいおん,león,noun
+写真,しゃしん,foto,noun
+動物園,どうぶつえん,zoológico,noun
+撮る,とる (とります),sacar (una foto) / filmar,verb
+取る,とる (とります),tomar / agarrar / quitar,verb
+広場,ひろば,plaza,noun
+肉,にく,carne,noun
+計画,けいかく (けいかくします),plan / planificación,noun
+===== FILE: words_2.1_get_help_when_traveling.csv =====
+Word,Reading,Translation,Category
+空港,くうこう,aeropuerto,noun
+じゃないです,じゃないです,no es / no soy,expression
+地下鉄,ちかてつ,metro,noun
+切符,きっぷ,billete,noun
+地図,ちず,mapa,noun
+パスポート,ぱすぽーと,pasaporte,noun
+スマホ,すまほ,móvil / smartphone,noun
+鞄,かばん,bolsa / bolso,noun
+田,た,arrozal / campo de arroz,kanji
+中,なか,dentro / centro,kanji
+山,やま,montaña,kanji
+口,くち,boca,kanji
+
+===== FILE: words_2.20_discuss_a_family_visit.csv =====
+Word,Reading,Translation,Category
+ロビー,ろびー,vestíbulo,noun
+席,せき,asiento,noun
+便利,べんり,conveniente / útil / práctico,adjective
+新幹線,しんかんせん,tren bala,noun
+乗る,のる (のります),subir a / montar en (transporte),verb
+城,しろ,castillo,noun
+庭,にわ,jardín,noun
+観光,かんこう (かんこうします),turismo,noun
+カツ,かつ,filete empanado,noun
+短い,みじかい,corto,adjective
+待つ,まつ (まちます),esperar,verb
+楽しみ,たのしみ,esperar con ganas / ilusión,expression
+===== FILE: words_2.21_order_pastries.csv =====
+Word,Reading,Translation,Category
+甘い,あまい,dulce,adjective
+大好き,だいすき,love,adjective
+お菓子屋,おかしや,pastelería,noun
+緑,みどり,verde,noun
+チーズケーキ,ちいずけーき,tarta de queso,noun
+カップケーキ,かっぷけーき,magdalena,noun
+イチゴ,いちご,fresa,noun
+クッキー,くっきー,galleta,noun
+チョコレート,ちょこれーと,chocolate,noun
+ドーナツ,どうなつ,donut,noun
+パイ,ぱい,pastel,noun
+===== FILE: words_2.22_use_negative_verbs.csv =====
+Word,Reading,Translation,Category
+暇,ひま,libre / desocupado,adjective
+一緒,いっしょ,juntos,expression
+卵,たまご,huevo,noun
+醤油,しょうゆ,salsa de soja,noun
+野菜,やさい,verdura,noun
+スーパー,すーぱー,supermercado,noun
+もっと,もっと,más,adverb
+魚,さかな,pez,noun
+豆腐,とうふ,tofu,noun
+牛丼,ぎゅうどん,bol de arroz con ternera,noun
+でも,でも,pero / sin embargo,expression
+塩,しお,sal,noun
+トンカツ,とんかつ,filete de cerdo empanado,noun
+ソース,そーす,salsa,noun
+生,なま,crudo / fresco / directo,noun
+使う,つかう (つかいます),utilizar,verb
+コーラ,こーら,cola,noun
+ビール,びーる,cerveza,noun
+豚肉,ぶたにく,carne de cerdo,noun
+しょっぱい,しょっぱい,salado,adjective
+===== FILE: words_2.23_discuss_classes.csv =====
+Word,Reading,Translation,Category
+教室,きょうしつ,classroom,noun
+授業,じゅぎょう,clase,noun
+沢山,たくさん,mucho,adverb
+テスト,てすと,test / examen,noun
+質問,しつもん (しつもんします),pregunta,noun
+終わる,おわる (おわります),terminar,verb
+プロジェクト,ぷろじぇくと,proyecto,noun
+締め切り,しめきり,deadline,noun
+===== FILE: words_2.24_talk_about_jobs.csv =====
+Word,Reading,Translation,Category
+同僚,どうりょう,coworker,noun
+マネージャー,まねーじゃー,manager,noun
+会社,かいしゃ,empresa,noun
+図書館,としょかん,biblioteca,noun
+辞書,じしょ,diccionario,noun
+翻訳,ほんやく (ほんやくします),traducción,noun
+翻訳家,ほんやくか,traductor,noun
+ナビ,なび,gps,noun
+運転,うんてん (うんてんします),conducción,noun
+午前,ごぜん,AM,noun
+洗う,あらう (あらいます),lavar,verb
+運転手,うんてんしゅ,conductor,noun
+カメラ,かめら,cámara,noun
+イベント,いべんと,evento,noun
+写真家,しゃしんか,fotógrafo,noun
+チーム,ちーむ,equipo,noun
+選手,せんしゅ,deportista,noun
+ジム,じむ,gimnasio,noun
+プロ,ぷろ,profesional,noun
+運動,うんどう (うんどうします),ejercicio,noun
+===== FILE: words_2.25_get_around_a_theme_park.csv =====
+Word,Reading,Translation,Category
+博物館,はくぶつかん,museo,noun
+午後,ごぜん,PM / de la tarde,noun
+遊園地,ゆうえんち,parque de atracciones,noun
+つまらない,つまらない,aburrido,adjective
+入り口,いりぐち,entrada,noun
+入場料,にゅうじょうりょう,admission fee,noun
+大人,おとな,adulto,noun
+ゴーカート,ごーかーと,go-kart,noun
+アトラクション,あとらくしょん,atracción,noun
+好きな,すきな,favorito,adjective
+ジェットコースター,じぇっとこーすたー,roller coaster,noun
+怖い,こわい,scary / da miedo,adjective
+黄色い,きいろい,amarillo,adjective
+顔,かお,cara,noun
+ショー,しょー,show / espectáculo,noun
+キャラクター,きゃらくたー,personaje,noun
+〜サイズ,〜さいず,talla,noun
+味,あじ,sabor,noun
+バニラ,ばにら,vainilla,noun
+チョコミント,ちょこみんと,chocomint,noun
+===== FILE: words_2.26_discuss_media.csv =====
+Word,Reading,Translation,Category
+セール,せーる,rebajas,noun
+コーナー,こーなー,section,noun
+フィクション,ふぃくしょん,fiction,noun
+話,はなし,historia,noun
+あまり,あまり,demasiado,adverb
+アルバム,あるばむ,album,noun
+バンド,ばんど,band,noun
+ポップス,ぽっぷす,pop music,noun
+アニソン,あにそん,anime music,noun
+難しい,むずかしい,difícil,adjective
+パズル,ぱずる,puzzle,noun
+カード,かーど,card,noun
+SF,えすえふ,science fiction,noun
+俳優,はいゆう,actor,noun
+ドキュメンタリー,どきゅめんたりー,documental,noun
+ポスター,ぽすたー,poster,noun
+===== FILE: words_2.27_communicate_at_work.csv =====
+Word,Reading,Translation,Category
+受付,うけつけ,recepción,noun
+ミーティング,みーてぃんぐ (みーてぃんぐします),meeting,noun
+プリンター,ぷりんたー,printer,noun
+トレーニング,とれーにんぐ (とれーにんぐします),training,noun
+から,から,desde,particle
+食堂,しょくどう,cafetería,noun
+昼休み,ひるやすみ,lunch break,noun
+チャーハン,ちゃーはん,arroz frito,noun
+フライドポテト,ふらいどぽてと,french fries,noun
+パソコン,ぱそこん,PC,noun
+プレゼンテーション,ぷれぜんてーしょん (ぷれぜんてーしょんします),presentation,noun
+まで,まで,hasta,particle
+クライアント,くらいあんと,client,noun
+バー,ばー,bar,noun
+歌う,うたう (うたいます),cantar,verb
+カラオケ,からおけ,karaoke,noun
+最後,さいご,último,noun
+〜階,〜かい,contador de pisos,counter
+===== FILE: words_2.28_talk_about_hobbies.csv =====
+Word,Reading,Translation,Category
+バドミントン,ばどみんとん,badminton,noun
+試合,しあい,partido,noun
+練習,れんしゅう (れんしゅうします),entrenamiento,noun
+ピアノ,ぴあの,piano,noun
+楽器,がっき,instrumento,noun
+弾く,ひく (ひきます),tocar instrumento,verb
+ギター,ぎたー,guitar,noun
+〜時間,〜じかん,contador de horas,counter
+今夜,こんや,esta noche,noun
+バレエ,ばれえ,ballet,noun
+パフォーマンス,ぱふぉーまんす,performance,noun
+レッスン,れっすん,lesson,noun
+始まる,はじまる (はじまります),empezar,verb
+踊る,おどる (おどります),bailar,verb
+ブログ,ぶろぐ,blog,noun
+記事,きじ,post,noun
+書く,かく (かきます),escribir,verb
+ファッション,ふぁっしょん,fashion,noun
+===== FILE: words_2.29_discuss_seasonal_events.csv =====
+Word,Reading,Translation,Category
+大会,たいかい,torneo,noun
+お祭り,おまつり,festival,noun
+チョコバナナ,ちょこばなな,chocobanana,noun
+ダンス,だんす (だんすします),dance,noun
+コンテスト,こんてすと,contest,noun
+コミュニティセンター,こむにてぃせんたー,community center,noun
+太鼓,たいこ,drums,noun
+パーティー,ぱーてぃー,party,noun
+ハロウィン,はろうぃん,halloween,noun
+パレード,ぱれーど,parade,noun
+イルミネーション,いるみねーしょん,lights display,noun
+大晦日,おおみそか,new years eve,noun
+カウントダウン,かうんとだうん,countdown,noun
+クリスマス,くりすます,christmas,noun
+===== FILE: words_2.2_get_to_know_people.csv =====
+Word,Reading,Translation,Category
+私,わたし,yo,pronoun
+ようこそ,ようこそ,bienvenido,expression
+名前,なまえ,nombre,noun
+はじめまして,はじめまして,encantado / mucho gusto,expression
+おはようございます,おはようございます,buenos días,expression
+都市,とし,ciudad,noun
+東京,とうきょう,Tokio,noun
+京都,きょうと,Kioto,noun
+出身,しゅっしん,origen / procedencia,noun
+どう,どう,cómo,expression
+賑やか,にぎやか,animado / bullicioso,adjective
+静か,しずか,tranquilo,adjective
+きれい,きれい,bonito / limpio,adjective
+とても,とても,muy,adverb
+町,まち,pueblo / ciudad,noun
+===== FILE: words_2.30_talk_about_date_plans.csv =====
+Word,Reading,Translation,Category
+ネックレス,ねくれす,necklace,noun
+誕生日,たんじょうび,cumpleaños,noun
+元気,げんき,animado,adjective
+デート,でーと (でーとします),date,noun
+腕時計,うでどけい,reloj de pulsera,noun
+スーツ,すーつ,suit,noun
+着る,きる (きます),vestirse,verb
+ブラウス,ぶらうす,blusa,noun
+映画館,えいがかん,cinema,noun
+監督,かんとく,director,noun
+ホットドッグ,ほっとどっぐ,hotdog,noun
+ポップコーン,ぽっぷこーん,popcorn,noun
+ワイン,わいん,wine,noun
+ステーキ,すてーき,steak,noun
+歌,うた,canción,noun
+予約,よやく (よやくします),reserva,noun
+===== FILE: words_2.3_describe_your_family.csv =====
+Word,Reading,Translation,Category
+父,ちち,padre (propio),noun
+母,はは,madre (propia),noun
+家族,かぞく,familia,noun
+忙しい,いそがしい,ocupado,adjective
+エンジニア,えんじにあ,ingeniero,noun
+歳,さい,años (contador de edad),counter
+姉,あね,hermana mayor,noun
+兄,あに,hermano mayor,noun
+弟,おとうと,hermano menor,noun
+妹,いもうと,hermana menor,noun
+会社員,かいしゃいん,empleado de empresa,noun
+看護師,かんごし,enfermero/a,noun
+うるさい,うるさい,ruidoso / molesto,adjective
+有名,ゆうめい,famoso,adjective
+娘,むすめ,hija,noun
+息子,むすこ,hijo,noun
+妻,つま,esposa (propia),noun
+夫,おっと,marido (propio),noun
+大学生,だいがくせい,estudiante universitario,noun
+おしゃれ,おしゃれ,elegante / con estilo,adjective
+頭がいい,あたまがいい,inteligente,expression
+
+===== FILE: words_2.4_talk_about_hobbies.csv =====
+Word,Reading,Translation,Category
+見る,みる (みます),ver,verb
+テレビ,てれび,televisión,noun
+映画,えいが,película,noun
+よく,よく,a menudo,adverb
+アニメ,あにめ,anime,noun
+サッカー,さっかー,fútbol,noun
+バスケットボール,ばすけっとぼーる,baloncesto,noun
+本,ほん,libro,noun
+時々,ときどき,a veces,adverb
+聞く,きく (ききます),escuchar / oír,verb
+ジャズ,じゃず,jazz,noun
+音楽,おんがく,música,noun
+ロック,ろっく,rock,noun
+ニュース,にゅーす,noticias,noun
+雑誌,ざっし,revista,noun
+読む,よむ (よみます),leer,verb
+野球,やきゅう,béisbol,noun
+マンガ,まんが,manga,noun
+===== FILE: words_2.5_describe_eating_habits.csv =====
+Word,Reading,Translation,Category
+食べる,たべる (たべます),comer,verb
+パン,ぱん,pan,noun
+サンドイッチ,さんどいっち,sándwich,noun
+飲む,のむ (のみます),beber,verb
+毎朝,まいあさ,cada mañana,noun
+毎日,まいにち,cada día,noun
+毎晩,まいばん,cada noche,noun
+ジュース,じゅーす,zumo / bebida,noun
+時,じ,hora (contador),counter
+朝ご飯,あさごはん,desayuno,noun
+昼ご飯,ひるごはん,comida / almuerzo,noun
+弁当,べんとう,bento / comida preparada,noun
+晩ご飯,ばんごはん,cena,noun
+半,はん,y media / mitad,noun
+半分,はんぶん,mitad,noun
+
+===== FILE: words_2.6_shop_for_clothing.csv =====
+Word,Reading,Translation,Category
+古い,ふるい,antiguo / viejo,adjective
+服,ふく,ropa,noun
+財布,さいふ,cartera,noun
+ださい,ださい,cutre / feo,adjective
+ちょっと,ちょっと,un poco,adverb
+新しい,あたらしい,nuevo,adjective
+スカート,すかーと,falda,noun
+Tシャツ,てぃーしゃつ,camiseta,noun
+欲しい,ほしい,querer (objeto),adjective
+ドレス,どれす,vestido,noun
+素敵,すてき,bonito / encantador,adjective
+ネクタイ,ねくたい,corbata,noun
+安い,やすい,barato,adjective
+高い,たかい,caro / alto,adjective
+いくら,いくら,cuánto,expression
+ジャケット,じゃけっと,chaqueta,noun
+
+===== FILE: words_2.7_order_food_and_drink.csv =====
+Word,Reading,Translation,Category
+レストラン,れすとらん,restaurante,noun
+定食,ていしょく,menú del día / comida combinada,noun
+水,みず,agua,noun
+大きい,おおきい,grande,adjective
+サラダ,さらだ,ensalada,noun
+小さい,ちいさい,pequeño,adjective
+アイスクリーム,あいすくりーむ,helado,noun
+少し,すこし,un poco,adverb
+紅茶,こうちゃ,té negro,noun
+みそ汁,みそしる,sopa de miso,noun
+一つ,ひとつ,uno (cosas),number
+二つ,ふたつ,dos (cosas),number
+三つ,みっつ,tres (cosas),number
+四つ,よっつ,cuatro (cosas),number
+五つ,いつつ,cinco (cosas),number
+六つ,むっつ,seis (cosas),number
+七つ,ななつ,siete (cosas),number
+八つ,やっつ,ocho (cosas),number
+九つ,ここのつ,nueve (cosas),number
+十,とお,diez (cosas),number
+いくつ,いくつ,cuántos / cuántas,expression
+個,こ,contador de unidades pequeñas,counter
+
+===== FILE: words_2.8_use_present_tense_verbs.csv =====
+Word,Reading,Translation,Category
+泳ぐ,およぐ (およぎます),nadar,verb
+一人で,ひとりで,solo / por uno mismo,expression
+ドラマ,どらま,drama / serie,noun
+遊ぶ,あそぶ (あそびます),jugar / salir,verb
+友達,ともだち,amigo,noun
+ヨガ,よが,yoga,noun
+スポーツ,すぽーつ,deporte,noun
+ゲーム,げーむ,juego,noun
+買う,かう (かいます),comprar,verb
+出かける,でかける (でかけます),salir / ir fuera,verb
+話す,はなす (はなします),hablar,verb
+テニス,てにす,tenis,noun
+柔道,じゅうどう,judo,noun
+動画,どうが,vídeo,noun
+今日,きょう,hoy,noun
+明日,あした,mañana,noun
+昨日,きのう,ayer,noun
+一昨日,おととい,anteayer,noun
+週,しゅう,semana,noun
+週末,しゅうまつ,fin de semana,noun
+日,ひ,día,counter
+月,つき / げつ,mes / luna,noun
+年,とし / ねん,año,noun
+曜日,ようび,día de la semana,noun
+月曜日,げつようび,lunes,noun
+火曜日,かようび,martes,noun
+水曜日,すいようび,miércoles,noun
+木曜日,もくようび,jueves,noun
+金曜日,きんようび,viernes,noun
+土曜日,どようび,sábado,noun
+日曜日,にちようび,domingo,noun
+
+===== FILE: words_2.9_get_around_a_station.csv =====
+Word,Reading,Translation,Category
+ホーム,ほーむ,andén,noun
+改札,かいさつ,torniquete / entrada estación,noun
+階,かい,piso (contador),counter
+ある,ある (あります),haber (cosas inanimadas),verb
+いる,いる (います),haber (personas/animales),verb
+ゴミ箱,ごみばこ,papelera,noun
+乗り換え,のりかえ,transbordo,noun
+タクシー,たくしー,taxi,noun
+お手洗い,おてあらい,baño,expression
+地下,ちか,subsuelo / subterráneo,noun
+コンセント,こんせんと,enchufe,noun
+エレベーター,えれべーたー,ascensor,noun
+遠い,とおい,lejos,adjective
+電話,でんわ,teléfono,noun
+階段,かいだん,escaleras,noun
+近い,ちかい,cerca,adjective
+自販機,じはんき,máquina expendedora,noun
+出口,でぐち,salida,noun
+コインロッカー,こいんろっかー,taquilla,noun
+
+===== FILE: words_3.10_express_workplace_frustrations.csv =====
+Word,Reading,Translation,Category
+やめる,やめる (やめます),quit / stop,verb
+良い,いい / よい,good,adjective
+オフィス,おふぃす,office,noun
+壊れる,こわれる (こわれます),romperse,verb
+真面目,まじめ,serio,adjective
+怒る,おこる (おこります),enfadarse,verb
+まずい,まずい,no rico,adjective
+同じ,おなじ,igual,adjective
+別,べつ,diferente / aparte,noun
+スキル,すきる,skill,noun
+頑張る,がんばる (がんばります),refuse to give up / resistir,verb
+紹介,しょうかい (しょうかいします),introducción,noun
+===== FILE: words_3.1_take_public_transport.csv =====
+Word,Reading,Translation,Category
+売り場,うりば,zona de ventas,noun
+モノレール,ものれーる,monorail,noun
+〜番,〜ばん,contador de números ordinal,counter
+オレンジ,おれんじ,naranja,noun
+快速,かいそく,servicio rápido,noun
+降りる,おりる (おります),bajarse,verb
+エスカレーター,えすかれーたー,escaleras mecánicas,noun
+乗り換える,のりかえる (のりかえます),transbordar,verb
+ツアー,つあー,tour,noun
+払う,はらう (はらいます),pagar,verb
+インフォメーション,いんふぉめーしょん,información,noun
+ゆっくり,ゆっくり (ゆっくりします),relajadamente,adverb
+呼ぶ,よぶ (よびます),llamar,verb
+===== FILE: words_3.2_discuss_college_life.csv =====
+Word,Reading,Translation,Category
+〜年生,〜ねんせい,contador de cursos,counter
+数学,すうがく,mates,noun
+専攻,せんこう,carrera profesional,noun
+ビジネス,びじねす,business,noun
+ドイツ,どいつ,Alemania,noun
+言語,げんご,idioma,noun
+タガログ語,たがろぐご,Tagalo,noun
+フィリピン,ふぃりぴん,Filipinas,noun
+寮,りょう,residencia,noun
+キャンパス,きゃんぱす,campus,noun
+ルームメイト,るーむめいと,roommate,noun
+サークル,さーくる,club,noun
+ボードゲーム,ぼーどげーむ,boardgame,noun
+ボランティア,ぼらんてぃあ (ぼらんてぃあします),volunteer,noun
+チェス,ちぇす,chess,noun
+===== FILE: words_3.3_count_animals.csv =====
+Word,Reading,Translation,Category
+動物,どうぶつ,animal,noun
+猫,ねこ,gato,noun
+人気,にんき,popular,adjective
+カプチーノ,かぷちーの,capuccino,noun
+目,め,ojo,noun
+ハムスター,ハムスター,hamster,noun
+耳,みみ,oreja,noun
+〜匹,〜ひき,contador de animales pequeños,counter
+口,くち,boca,noun
+トマト,とまと,tomate,noun
+部屋,へや,habitación,noun
+鼻,はな,nariz,noun
+カメレオン,かめれおん,camaleón,noun
+カラフル,からふる,colorful,adjective
+隅,すみ,rincón,noun
+===== FILE: words_3.4_discuss_outdoors_activities.csv =====
+Word,Reading,Translation,Category
+バックパック,ばっくぱっく,mochila,noun
+ハイキング,はいきんぐ (はいきんぐします),hiking,noun
+キャンプ,きゃんぷ (きゃんぷします),camping,noun
+ピクニック,ぴくにっく (ぴくにっくします),picnic,noun
+バーベキュー,ばーべきゅー (ばーべきゅーします),bbq,noun
+暗い,くらい,oscuro,adjective
+川,かわ,río,noun
+景色,けしき,vistas,noun
+楽しむ,たのしむ (たのしみます),disfrutar,verb
+外,そと,afuera,noun
+涼しい,すずしい,fresco,adjective
+牛肉,ぎゅうにく,ternera,noun
+コショウ,こしょう,pepper,noun
+シーフード,しーふーど,marisco,noun
+焼く,やく (やきます),hornear/ freir/ asar,verb
+===== FILE: words_3.5_eat_in_a_restaurant.csv =====
+Word,Reading,Translation,Category
+~人,~にん,person counter,counter
+いらっしゃいませ,いらっしゃいませ,bienvenido (al entrar),expression
+メニュー,めにゅー,menú,noun
+冷たい,つめたい,frío al tacto,adjective
+何名様,なんめいさま,¿cuántas personas?,counter
+ウーロン茶,うーろんちゃ,té oolong,noun
+箸,はし,palillos,noun
+多い,おおい,muchos / abundante,adjective
+スープ,すーぷ,sopa,noun
+麻婆豆腐,まーぼーどうふ,mapo tofu,noun
+辛い,からい,picante,adjective
+ナプキン,なぷきん,servilleta,noun
+店員,てんいん,camarero,noun
+エビ,えび,gamba / camarón,noun
+お釣り,おつり,el cambio (dinero),noun
+全部,ぜんぶ,todo / en total,noun
+会計,かいけい,la cuenta / caja,noun
+開く,あく (あきます),abrirse,verb
+===== FILE: words_3.6_communicate_at_a_hotel.csv =====
+Word,Reading,Translation,Category
+泊まる,とまる (とまります),to stay overnight,verb
+ネット,ねっと,internet,noun
+探す,さがす (さがします),buscar,verb
+クレジットカード,くれじっとかーど,credit card,noun
+鍵,かぎ,key,noun
+チェックイン,ちぇっくいん (ちぇっくいんします),check-in,noun
+隣,となり,al lado de,noun
+氷,こおり,ice,noun
+ルームサービス,るーむさーびす,room service,noun
+パスワード,ぱすわーど,password,noun
+前,まえ,in front of,noun
+タオル,たおる,towel,noun
+スパ,すぱ,spa,noun
+無料,むりょう,gratis,adjective
+後ろ,うしろ,detrás,noun
+牛乳,ぎゅうにゅう,leche,noun
+トースト,とーすと,toast,noun
+チェックアウト,ちぇっくあうと (ちぇっくあうとします),checkout,noun
+コーヒーメーカー,こーひーめーかー,coffee maker,noun
+===== FILE: words_3.7_use_past_tense_verbs.csv =====
+Word,Reading,Translation,Category
+文化,ぶんか,cultura,noun
+歌舞伎,かぶき,teatro tradicional japonés,noun
+先月,せんげつ,last month,noun
+先週,せんしゅう,last week,noun
+去年,きょねん,last year,noun
+クレープ,くれーぷ,crep,noun
+昨日,きのう,ayer,noun
+初めて,はじめて,por primera vez,adverb
+ピーナッツ,ぴーなっつ,peanuts,noun
+水族館,すいぞくかん,aquarium,noun
+見つける,みつける (みつけます),encontrar / descubrir,verb
+象,ぞう,elefante,noun
+===== FILE: words_3.8.1_extra_unit_duol_update.csv =====
+Word,Reading,Translation,Category
+モニター,もにたー,monitor,noun
+もう,もう,already / ya,adverb
+棚,たな,shelf / estantería,noun
+お酒,おさけ,alcohol,noun
+着く,つく (つきます),llegar,verb
+アクセサリー,あくせさりー,accesorio,noun
+紫,むらさき,morado,noun
+~中,~ちゅう,en medio de (acción),noun
+キーボード,きーぼーど,keyboard,noun
+ふわふわ,ふわふわ,fluffy / esponjoso,adverb
+ボロボロ,ぼろぼろ,hecho polvo / tattered,adverb
+遅れる,おくれる (おくれます),retrasarse / llegar tarde,verb
+まず,まず,first / en primer lugar,adverb
+セーター,せーたー,sweater / jersey,noun
+ジーンズ,じーんず,jeans / vaqueros,noun
+バター,ばたー,butter / mantequilla,noun
+引き出し,ひきだし,cajón,noun
+===== FILE: words_3.8.2_extra_unit_duol_update.csv =====
+Word,Reading,Translation,Category
+赤ちゃん,あかちゃん,baby / bebé,noun
+果物,くだもの,fruta,noun
+りんご,りんご,manzana,noun
+予定,よてい,plan / schedule,noun
+疲れる,つかれる (つかれます),cansarse,verb
+すぐ,すぐ,inmediatamente,adverb
+左,ひだり,izquierda,noun
+メンズ,めんず,men's,noun
+健康 的,けんこうてき,saludable,adjective
+真ん中,まんなか,en medio,noun
+みんな,みんな,everyone,noun
+パーカー,ぱーかー,hoodie,noun
+じゃがいも,じゃがいも,patata,noun
+かご,かご,cesta,noun
+奥,おく,fondo / profundidad,noun
+スムージー,すむーじー,smoothie,noun
+砂糖,さとう,azúcar,noun
+猿,さる,monkey,noun
+ステージ,すてーじ,stage / escenario,noun
+戻る,もどる (もどります),regresar (a punto reciente),verb
+===== FILE: words_3.8.3_extra_unit_duol_update.csv =====
+Word,Reading,Translation,Category
+桜,さくら,cherry blossom,noun
+咲く,さく (さきます),to bloom,verb
+グレー,ぐれー,grey,noun
+重い,おもい,heavy,adjective
+並ぶ,ならぶ (ならびます),to line up,verb
+マグネット,まぐねと,magnet,noun
+暖房,だんぼう,calefacción,noun
+付ける,つける (つけます),encender,verb
+上,うえ,up,noun
+上がる,あがる (あがります),subir,verb
+万,まん,10k,number
+マウス,まうす,mouse,noun
+マフラー,まふらー,bufanda,noun
+今度,こんど,next time,noun
+===== FILE: words_3.8.4_extra_unit_duol_update.csv =====
+Word,Reading,Translation,Category
+パンダ,ぱんだ,panda,noun
+パン屋,ぱんや,panadería,noun
+小麦粉,こむぎこ,flour,noun
+ケーブル,けーぶる,cable,noun
+軽い,かるい,ligero,adjective
+アーティスト,あーてぃすと,artist,noun
+グラム,ぐらむ,gram,counter
+夜,よる,night,noun
+ワイヤレス,わいやれす,wireless,noun
+光る,ひかる (ひかります),brillar,verb
+スピーカー,すぴーかー,speaker,noun
+スイカ,すいか,watermelon,noun
+キリン,きりん,jirafa,noun
+タバコ,たばこ,tabaco,noun
+吸う,すう (すいます),aspirar,verb
+ヨーグルト,よーぐると,yogurt,noun
+===== FILE: words_3.8_make_transit_plans.csv =====
+Word,Reading,Translation,Category
+従兄弟,いとこ,primo,noun
+ポテトチップス,ぽてとちっぷす,patatas fritas / lays,noun
+フライドチキン,ふらいどちきん,fried chicken,noun
+道,みち,camino / calle,noun
+途中,とちゅう,de camino / a mitad de,noun
+やる,やる (やります),hacer,verb
+カップ,かっぷ,cup / taza,noun
+フォーク,ふぉーく,tenedor,noun
+渡る,わたる (わたります),cruzar,verb
+おもちゃ,おもちゃ,juguete,noun
+電気,でんき,electricidad,noun
+ナイフ,ないふ,cuchillo,noun
+お皿,おさら,plato,noun
+切る,きる (きります),cortar,verb
+歩く,あるく (あるきます),andar / caminar,verb
+===== FILE: words_3.9_evaluate_an_apartment.csv =====
+Word,Reading,Translation,Category
+汚い,きたない,sucio,adjective
+住む,すむ (すみます),residir,verb
+スキー,すきー (すきーします),ski,noun
+安全,あんぜん,safe,adjective
+北,きた,norte,noun
+辺り,あたり,alrededores,noun
+また,また,otra vez,adverb
+クローゼット,くろぜっと,closet,noun
+ドア,どあ,door,noun
+窓,まど,window,noun
+大家,おおや,landlord,noun
+親切,しんせつ,amable,adjective
+みかん,みかん,mandarina,noun
+家賃,やちん,rent,noun
+電池,でんち,battery,noun
+ターミナル,たーみなる,terminal,noun
+さつまいも,さつまいも,sweet potato,noun
+スノボー,すのぼー (すのぼーします),snowboard,noun
+駐車場,ちゅうしゃじょう,parking lot,noun
+スケート,すけーと (すけーとします),skate,noun
+鍋,なべ,olla,noun
