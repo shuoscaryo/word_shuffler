@@ -2,10 +2,10 @@ Word,Reading,Translation,Category
 ネックレス,ねくれす,necklace,noun
 誕生日,たんじょうび,cumpleaños,noun
 元気,げんき,animado,adjective
-デート,でーと (でーとします),date,noun
+デート (します),でーと,date,noun
 腕時計,うでどけい,reloj de pulsera,noun
 スーツ,すーつ,suit,noun
-着る,きる (きます),vestirse,verb
+着る (着ます),きる,vestirse,verb
 ブラウス,ぶらうす,blusa,noun
 映画館,えいがかん,cinema,noun
 監督,かんとく,director,noun
@@ -14,4 +14,4 @@ Word,Reading,Translation,Category
 ワイン,わいん,wine,noun
 ステーキ,すてーき,steak,noun
 歌,うた,canción,noun
-予約,よやく (よやくします),reserva,noun
+予約 (します),よやく,reserva,noun

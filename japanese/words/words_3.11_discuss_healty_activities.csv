@@ -5,10 +5,10 @@ Word,Reading,Translation,Category
 ブランケット,ぶらんけっと,blanket,noun
 お粥,おかゆ,gachas de arroz,noun
 バナナ,ばなな,banana,noun
-朝寝坊,ねぼう (ねぼうします),oversleep,noun
-キャンセル,きゃんせる (きゃんせるします),cancelar,noun
+朝寝坊 (します),ねぼう,oversleep,noun
+キャンセル (します),きゃんせる,cancelar,noun
 レシート,れしーと,recibo,noun
-助ける,たすける (たすけます),rescatar,verb
+助ける (助けます),たすける,rescatar,verb
 冊,さつ,contador libros,counter
 地面,じめん,suelo exterior,noun
 床,ゆか,suelo interior,noun
@@ -16,8 +16,8 @@ Word,Reading,Translation,Category
 実,じつ,realidad,noun
 意味,いみ,significado,noun
 言葉,ことば,palabra,noun
-急ぐ,いそぐ (いそぎます),hurry,verb
-出る,でる (でます),salir,verb
+急ぐ (急ぎます),いそぐ,hurry,verb
+出る (出ます),でる,salir,verb
 メッセージ,めっせーじ,mensaje,noun
-送る,おくる (おくります),enviar,verb
+送る (送ります),おくる,enviar,verb
 水泳,すいえい,natación,noun
